@@ -1,4 +1,4 @@
-package fr.aylan.dailycollect.driver.ui.slideshow;
+package fr.aylan.dailycollect.driver.ui.plannification;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,18 @@ import androidx.lifecycle.ViewModelProviders;
 
 import fr.aylan.dailycollect.R;
 
-public class SlideshowFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+public class HomeFragment extends Fragment {
+
+    private HomeViewModel homeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                ViewModelProviders.of(this).get(SlideshowViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
-        slideshowViewModel.getText().observe(this, new Observer<String>() {
+        homeViewModel =
+                ViewModelProviders.of(this).get(HomeViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        final TextView textView = root.findViewById(R.id.text_home);
+        homeViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

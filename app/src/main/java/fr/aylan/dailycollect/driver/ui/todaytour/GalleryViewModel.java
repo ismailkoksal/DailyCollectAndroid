@@ -1,4 +1,4 @@
-package fr.aylan.dailycollect.driver.ui.gallery;
+package fr.aylan.dailycollect.driver.ui.todaytour;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
