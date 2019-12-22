@@ -1,4 +1,4 @@
-# greencollectproject
+# Ovive App Project
 
 " Réalisation de l'application pour O'vive" 
 
