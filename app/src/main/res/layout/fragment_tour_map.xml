@@ -38,7 +38,7 @@ tools:context=".driver.ui.detailtour.TourDetail">
         app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvCollectPointName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/navigate"

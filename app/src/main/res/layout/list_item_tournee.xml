@@ -7,13 +7,14 @@
     android:id="@+id/list_item_rel_lay"
     android:layout_width="match_parent"
     android:layout_height="80dp"
-    android:layout_margin="5dp"
 
     android:background="@drawable/corner_radius"
-    android:backgroundTint="#E4E4E4">
+    android:backgroundTint="@color/ovivefa"
+    android:elevation="4dp"
+    app:layout_goneMarginRight="5dp">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvCollectPointName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -24,7 +25,7 @@
         tools:text="Tournée 1" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -46,7 +47,7 @@
         app:srcCompat="@drawable/ic_place_black_24dp" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tvCity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
