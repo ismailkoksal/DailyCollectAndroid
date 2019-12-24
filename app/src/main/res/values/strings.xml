@@ -22,4 +22,7 @@
     <string name="detail">DETAILS</string>
     <string name="map">CARTE</string>
     <string name="tour">Tournée</string>
+    <string name="modify">Modifier</string>
+    <string name="delete">Supprimer</string>
+    <string name="start_tour">Commencer la Tournée</string>
 </resources>
