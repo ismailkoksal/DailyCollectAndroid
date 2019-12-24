@@ -31,3 +31,24 @@ La documentation et les commentaires doivent êtres en Anglais.
 
 ## le délai du retour sur le merge Request
 
+
+# Base de données:
+
+## Table Tournnée
+
+Table Tour {
+int id not null,
+string collectPointName ,
+date date not null ,
+string minTime not null,
+string maxTime not null,
+string city not null,
+
+}
+
+
+
+
+
+
+
