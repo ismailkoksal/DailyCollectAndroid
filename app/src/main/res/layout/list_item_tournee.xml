@@ -1,69 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/list_item_rel_lay"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
-
+    android:layout_height="100dp"
     android:background="@drawable/corner_radius"
-    android:backgroundTint="@color/ovivefa"
-    android:elevation="4dp"
-    app:layout_goneMarginRight="5dp">
+    android:backgroundTint="@android:color/white">
 
-    <TextView
-        android:id="@+id/tvCollectPointName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="7dp"
-        android:textColor="@color/oviveLightBlue"
-        tools:text="Tournée 1" />
 
-    <TextView
-        android:id="@+id/tvDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginBottom="21dp"
-        android:textColor="@color/oviveGray"
-        tools:text="05/02/2020" />
+    <RelativeLayout
+        android:layout_width="340dp"
+        android:layout_height="80dp"
+        android:background="@drawable/corner_radius"
+        android:backgroundTint="@color/ovivefa"
+        android:elevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="7dp"
-        android:backgroundTint="#00E21A1A"
-        android:tint="@color/oviveRed"
-        app:srcCompat="@drawable/ic_place_black_24dp" />
+        <TextView
+            android:id="@+id/tvCollectPointName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="7dp"
+            android:textColor="@color/oviveLightBlue"
+            tools:text="Tournée 1" />
 
-    <TextView
-        android:id="@+id/tvCity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="19dp"
-        android:layout_marginBottom="8dp"
-        android:layout_toEndOf="@+id/imageView2"
-        tools:text="La Rochelle" />
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="27dp"
+            android:layout_marginBottom="21dp"
+            android:textColor="@color/oviveGray"
+            tools:text="05/02/2020" />
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/button"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="15dp"
-        android:background="@drawable/round_button"
-        android:src="@drawable/ic_more_horiz_black_24dp" />
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="7dp"
+            android:backgroundTint="#00E21A1A"
+            android:tint="@color/oviveRed"
+            app:srcCompat="@drawable/ic_place_black_24dp" />
 
+        <TextView
+            android:id="@+id/tvCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="19dp"
+            android:layout_marginBottom="8dp"
+            android:layout_toEndOf="@+id/imageView2"
+            tools:text="La Rochelle" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/button"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/round_button"
+            android:src="@drawable/ic_more_horiz_black_24dp" />
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

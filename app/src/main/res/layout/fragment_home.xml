@@ -5,17 +5,15 @@
     android:layout_height="match_parent">
 
     <ListView
+        android:background="@android:color/white"
         android:id="@+id/list_view_tours"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbars="none"
         android:divider="@android:color/transparent"
-        android:dividerHeight="20.0sp"
-        android:foregroundGravity="center"
-        android:paddingLeft="5dp"
-        android:layout_marginTop="20dp"
-        android:paddingRight="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ListView>
 </androidx.constraintlayout.widget.ConstraintLayout>
