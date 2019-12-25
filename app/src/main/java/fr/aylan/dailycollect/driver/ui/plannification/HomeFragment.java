@@ -39,7 +39,6 @@ public class HomeFragment extends Fragment {
         list = root.findViewById(R.id.list_view_tours);
         list.setAdapter(tourAdapter);
 
-
         String[] array = new String[]{getString(R.string.modify),getString(R.string.delete), getString(R.string.start_tour)};
 
         builder = new AlertDialog.Builder(getActivity());
@@ -72,7 +71,7 @@ public class HomeFragment extends Fragment {
 
                 builder.show();
 
-                return false;
+                return true;
             }
         });
 

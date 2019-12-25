@@ -11,37 +11,34 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".driver.ui.addtour.AddTour"
+            android:label="@string/add_tour">
 
 
-        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        </activity>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
 
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-        <!--              The API key for Google Maps-based APIs. -->
+            android:value="@integer/google_play_services_version" /> <!-- The API key for Google Maps-based APIs. -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
-
-
 
         <activity android:name=".driver.ui.detailtour.TourDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".driver.TourList" />
-
         </activity>
-
-        <activity android:name=".driver.TourList"
+        <activity
+            android:name=".driver.TourList"
             android:label="@string/title_activity_liste_tournee"
             android:theme="@style/AppTheme.NoActionBar">
 
-
         </activity>
-
-
-
         <activity android:name=".MainActivity">
 
             <intent-filter>
@@ -49,6 +46,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 

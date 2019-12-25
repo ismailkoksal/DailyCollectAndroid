@@ -1,5 +1,6 @@
 package fr.aylan.dailycollect.driver;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
 import fr.aylan.dailycollect.R;
+import fr.aylan.dailycollect.driver.ui.addtour.AddTour;
 
 
 public class TourList extends AppCompatActivity {
@@ -33,8 +35,9 @@ public class TourList extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+                Intent intent = new Intent(getApplicationContext(), AddTour.class);
+                startActivity(intent);
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

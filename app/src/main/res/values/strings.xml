@@ -25,4 +25,5 @@
     <string name="modify">Modifier</string>
     <string name="delete">Supprimer</string>
     <string name="start_tour">Commencer la Tournée</string>
+    <string name="add_tour">Ajouter une tournée</string>
 </resources>
