@@ -26,7 +26,7 @@ public class AddTour extends AppCompatActivity {
     TimePickerDialog picker;
     EditText eText;
     ImageButton btnAddTourItem;
-    int[] items = new int[]{};
+    int nbrItems;
     LinearLayout listItemsLayout;
 
 
@@ -55,7 +55,8 @@ public class AddTour extends AppCompatActivity {
 
         String[] temp = {"item 1", "item 2", "item 3"};
 
-        TourItemView itemView = new TourItemView(this, items.length,temp);
+        nbrItems++;
+        TourItemView itemView = new TourItemView(this, nbrItems,temp);
 
         itemView.findViewById(R.id.etMinTime).setOnClickListener(new View.OnClickListener() {
             @Override

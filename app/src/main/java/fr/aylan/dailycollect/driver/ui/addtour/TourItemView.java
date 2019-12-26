@@ -35,7 +35,7 @@ public class TourItemView extends FrameLayout {
 
         ((EditText)findViewById(R.id.etMinTime)).setInputType(InputType.TYPE_NULL);
         ((EditText)findViewById(R.id.etMaxTime)).setInputType(InputType.TYPE_NULL);
-        ((TextView)findViewById(R.id.tvTitle)).setText("Point 1");
+        ((TextView)findViewById(R.id.tvTitle)).setText("Point "+_id);
 
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, listPointsCollect);
