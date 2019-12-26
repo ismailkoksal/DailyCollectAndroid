@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "195875993686",
+    "firebase_url": "https://dailycollect-78d4e.firebaseio.com",
+    "project_id": "dailycollect-78d4e",
+    "storage_bucket": "dailycollect-78d4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195875993686:android:c542f9324d2da02a4223f7",
+        "android_client_info": {
+          "package_name": "fr.aylan.dailycollect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195875993686-memgg3r9oms1rh0hikv7eckic2djdfto.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fr.aylan.dailycollect",
+            "certificate_hash": "fdf3940269c5fc599cddef422a4659c67fbbee75"
+          }
+        },
+        {
+          "client_id": "195875993686-4030i2f0hg4073u94lk85bkrnah902cm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBd3z2pHRUg6Ufcm3QIQznxaWvlRRnTZOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195875993686-4030i2f0hg4073u94lk85bkrnah902cm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
