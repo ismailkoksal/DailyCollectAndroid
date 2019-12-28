@@ -4,21 +4,22 @@
     package="fr.aylan.dailycollect">
 
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".driver.ui.addtour.AddTour"
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme"
+    tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".driver.ui.validatepointscollectlist.ValidateCollectPointsList"
+            android:label="@string/validate_tour_label">
+        </activity>
+        <activity
+            android:name=".driver.ui.addtour.AddTour"
             android:label="@string/add_tour">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".driver.TourList" />
-
-
         </activity>
 
         <uses-library
@@ -44,13 +45,11 @@
 
         </activity>
         <activity android:name=".MainActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 

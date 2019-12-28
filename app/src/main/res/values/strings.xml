@@ -28,4 +28,5 @@
     <string name="add_tour">Ajouter une tournée</string>
     <string name="validate">Valider</string>
     <string name="cancel">Annuler</string>
+    <string name="validate_tour_label">Valider liste des points</string>
 </resources>

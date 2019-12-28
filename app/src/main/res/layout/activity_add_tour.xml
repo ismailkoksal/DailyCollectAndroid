@@ -15,6 +15,7 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/btn_border_back"
         android:backgroundTint="@color/oviveDarckGreen"
+        android:onClick="validateList"
         android:text="@string/validate"
         android:textColor="#FFFFFF"
         android:textSize="15sp"

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -20,6 +21,7 @@ import java.util.Calendar;
 
 import fr.aylan.dailycollect.MainActivity;
 import fr.aylan.dailycollect.R;
+import fr.aylan.dailycollect.driver.ui.validatepointscollectlist.ValidateCollectPointsList;
 
 public class AddTour extends AppCompatActivity {
 
@@ -89,6 +91,14 @@ public class AddTour extends AppCompatActivity {
                     }
                 }, hour, minutes, true);
         picker.show();
+    }
+
+
+    public void validateList(View view){
+
+        Intent intent = new Intent(this, ValidateCollectPointsList.class);
+        startActivity(intent);
+
     }
 
 
