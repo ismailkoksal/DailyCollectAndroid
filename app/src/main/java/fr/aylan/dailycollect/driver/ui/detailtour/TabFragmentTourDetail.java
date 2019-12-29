@@ -5,19 +5,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-
 import java.util.ArrayList;
-
 import fr.aylan.dailycollect.R;
 import fr.aylan.dailycollect.driver.model.CollectPoint;
 import fr.aylan.dailycollect.driver.ui.listcollectpoints.ListCollectPoints;
 
 
-public class TourDetail extends Fragment {
-
+public class TabFragmentTourDetail extends Fragment {
 
 
     @Override
@@ -26,7 +22,7 @@ public class TourDetail extends Fragment {
 
 
         View root = inflater.inflate(R.layout.fragment_detail_tour, container, false);
-        
+
         ArrayList<CollectPoint> temp = new ArrayList<>();
 
         ListCollectPoints listCollectPoints = new ListCollectPoints(getContext(),temp);

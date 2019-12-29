@@ -10,6 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.tabs.TabLayout;
@@ -17,7 +18,7 @@ import com.google.android.material.tabs.TabLayout;
 import fr.aylan.dailycollect.R;
 
 
-public class TourDetailActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, OnMapReadyCallback {
+public class TourDetailActivity extends AppCompatActivity   {
 
     private TabsAdapter adapter = new TabsAdapter(getSupportFragmentManager());
     public TabLayout tabLayout;
@@ -31,8 +32,8 @@ public class TourDetailActivity extends AppCompatActivity implements AdapterView
         viewPager =  findViewById(R.id.viewPager);
         tabLayout =  findViewById(R.id.tabLayout);
 
-        adapter.addFragment(new TourDetail(), getString(R.string.detail));
-        adapter.addFragment(new TourMap(), getString(R.string.map));
+        adapter.addFragment(new TabFragmentTourDetail(), getString(R.string.detail));
+        adapter.addFragment(new TabFragmentTourMap(), getString(R.string.map));
         setTitle(getString(R.string.tour));
 
         viewPager.setAdapter(adapter);
@@ -40,31 +41,7 @@ public class TourDetailActivity extends AppCompatActivity implements AdapterView
         getSupportActionBar().setElevation(0);
 
 
-        //SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        //mapFragment.getMapAsync(this);
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        LatLng sydney = new LatLng(-33.852, 151.211);
-        LatLng sydney2 = new LatLng(-33.9, 151.211);
-        LatLng sydney3 = new LatLng(-33.5, 151.211);
-
-        googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        googleMap.addMarker(new MarkerOptions().position(sydney2).title("sydney 2"));
-        googleMap.addMarker(new MarkerOptions().position(sydney3).title("sydene3"));
-
-
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-    }
 }

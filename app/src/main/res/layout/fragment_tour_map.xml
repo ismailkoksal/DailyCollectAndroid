@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-tools:context=".driver.ui.detailtour.TourDetail">
+tools:context=".driver.ui.detailtour.TabFragmentTourDetail">
 
 
-
-    <include
-        android:id="@+id/include"
-        layout="@layout/activity_maps"
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="296dp"
-       ></include>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageView
@@ -22,7 +23,7 @@ tools:context=".driver.ui.detailtour.TourDetail">
         android:layout_height="74dp"
         android:layout_marginBottom="16dp"
         android:src="@drawable/corner_radius"
-        app:layout_constraintBottom_toBottomOf="@+id/include"
+        app:layout_constraintBottom_toBottomOf="@+id/mapView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
