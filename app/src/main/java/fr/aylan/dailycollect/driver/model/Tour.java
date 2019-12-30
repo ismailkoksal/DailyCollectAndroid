@@ -1,24 +1,25 @@
 package fr.aylan.dailycollect.driver.model;
 
-import java.util.Date;
+import java.util.ArrayList;
 
 public class Tour {
 
     private int id;
-    private String collectPointName;
+    // dd/mm/yyyy
     private String date;
-    private String minTime;
-    private String maxTime;
+    private String id_Rider;
+    private ArrayList<String> list_collectPoints;
     private String city;
 
-    public Tour(int id, String collectPointName, String date, String minTime, String maxTime, String city) {
+
+    public Tour(int id, String date, String id_Rider, String city) {
         this.id = id;
-        this.collectPointName = collectPointName;
         this.date = date;
-        this.minTime = minTime;
-        this.maxTime = maxTime;
+        this.id_Rider = id_Rider;
         this.city = city;
+        list_collectPoints = new ArrayList<>();
     }
+
 
     public int getId() {
         return id;
@@ -26,14 +27,6 @@ public class Tour {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getCollectPointName() {
-        return collectPointName;
-    }
-
-    public void setCollectPointName(String collectPointName) {
-        this.collectPointName = collectPointName;
     }
 
     public String getDate() {
@@ -44,20 +37,20 @@ public class Tour {
         this.date = date;
     }
 
-    public String getMinTime() {
-        return minTime;
+    public String getId_Rider() {
+        return id_Rider;
     }
 
-    public void setMinTime(String minTime) {
-        this.minTime = minTime;
+    public void setId_Rider(String id_Rider) {
+        this.id_Rider = id_Rider;
     }
 
-    public String getMaxTime() {
-        return maxTime;
+    public ArrayList<String> getList_collectPoints() {
+        return list_collectPoints;
     }
 
-    public void setMaxTime(String maxTime) {
-        this.maxTime = maxTime;
+    public void setList_collectPoints(ArrayList<String> list_collectPoints) {
+        this.list_collectPoints = list_collectPoints;
     }
 
     public String getCity() {
@@ -66,5 +59,13 @@ public class Tour {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public void addCollectPoint(String collectPoint){
+        this.addCollectPoint(collectPoint);
+    }
+
+    public String getItem(int index){
+        return  list_collectPoints.get(index);
     }
 }

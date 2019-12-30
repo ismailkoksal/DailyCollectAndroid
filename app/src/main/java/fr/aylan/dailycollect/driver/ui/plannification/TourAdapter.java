@@ -18,9 +18,11 @@ import fr.aylan.dailycollect.driver.model.Tour;
 
 public class TourAdapter  extends ArrayAdapter<Tour> {
 
+    Context _context;
 
     public TourAdapter(@NonNull Context context, ArrayList<Tour> tours) {
         super(context, 0, tours);
+        _context = context;
     }
 
 
@@ -32,12 +34,12 @@ public class TourAdapter  extends ArrayAdapter<Tour> {
         Tour tour = getItem(position);
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_tournee, parent, false);
+            convertView = LayoutInflater.from(_context).inflate(R.layout.list_item_tournee, parent, false);
         }
 
 
-        ((TextView)convertView.findViewById(R.id.tvCollectPointName)).setText(tour.getCollectPointName());
-        ((TextView)convertView.findViewById(R.id.tvDate)).setText(tour.getDate().toString());
+        ((TextView)convertView.findViewById(R.id.tvCollectPointName)).setText(tour.getId()+" ");
+        ((TextView)convertView.findViewById(R.id.tvDate)).setText(tour.getDate());
         ((TextView)convertView.findViewById(R.id.tvCity)).setText(tour.getCity());
 
 
