@@ -106,6 +106,8 @@ public class HomeFragment extends Fragment {
                                 if (e != null) {
                                     return;
                                 }
+                                listTours.clear();
+                                tourAdapter.clear();
 
                                 for (QueryDocumentSnapshot doc : value) {
                                     int id = Integer.parseInt(doc.getId());
