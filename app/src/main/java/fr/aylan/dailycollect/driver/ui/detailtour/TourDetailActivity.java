@@ -1,21 +1,12 @@
 package fr.aylan.dailycollect.driver.ui.detailtour;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.tabs.TabLayout;
-
 import fr.aylan.dailycollect.R;
+import fr.aylan.dailycollect.driver.model.Tour;
 
 
 public class TourDetailActivity extends AppCompatActivity   {
@@ -32,8 +23,12 @@ public class TourDetailActivity extends AppCompatActivity   {
         viewPager =  findViewById(R.id.viewPager);
         tabLayout =  findViewById(R.id.tabLayout);
 
-        adapter.addFragment(new TabFragmentTourDetail(), getString(R.string.detail));
-        adapter.addFragment(new TabFragmentTourMap(), getString(R.string.map));
+        Tour tour = getIntent().getExtras().getParcelable(getString(R.string.tour));
+        Toast.makeText(this,String.valueOf(tour.getList_collectPoints().size()),Toast.LENGTH_LONG).show();
+
+
+        adapter.addFragment(new TabFragmentTourDetail(tour), getString(R.string.detail));
+        adapter.addFragment(new TabFragmentTourMap(tour), getString(R.string.map));
         setTitle(getString(R.string.tour));
 
         viewPager.setAdapter(adapter);

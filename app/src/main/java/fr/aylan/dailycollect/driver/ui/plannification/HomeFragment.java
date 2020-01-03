@@ -1,10 +1,10 @@
 package fr.aylan.dailycollect.driver.ui.plannification;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +20,8 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
+import java.util.List;
+import fr.aylan.dailycollect.App;
 import fr.aylan.dailycollect.R;
 import fr.aylan.dailycollect.driver.model.Tour;
 import fr.aylan.dailycollect.driver.ui.detailtour.TourDetailActivity;
@@ -32,14 +34,15 @@ public class HomeFragment extends Fragment {
     ListView list ;
     private TourAdapter   tourAdapter;
     AlertDialog.Builder builder ;
-    FirebaseFirestore db ;
+    public static FirebaseFirestore db ;
     View root;
-
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
 
+
+        ((App) (getParentFragment().getActivity().getApplication()) ).initialize();
 
         db = FirebaseFirestore.getInstance();
         root = inflater.inflate(R.layout.fragment_home, container, false);
@@ -49,7 +52,6 @@ public class HomeFragment extends Fragment {
 
 
         listenToMultiple();
-
 
 
         String[] array = new String[]{getString(R.string.modify),getString(R.string.delete), getString(R.string.start_tour)};
@@ -75,6 +77,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getContext(), TourDetailActivity.class);
+                Tour tour = (Tour)listTours.get(position);
+                intent.putExtra(getString(R.string.tour),tour);
                 startActivity(intent);
             }
         });
@@ -98,7 +102,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void run() {
 
-                db.collection("tours")
+                ((App) (getParentFragment().getActivity().getApplication()) ).db.collection("tours")
                         .addSnapshotListener(new EventListener<QuerySnapshot>() {
                             @Override
                             public void onEvent(@Nullable QuerySnapshot value,
@@ -113,14 +117,18 @@ public class HomeFragment extends Fragment {
                                     int id = Integer.parseInt(doc.getId());
                                     String date = doc.getString("date");
                                     String id_Rider = doc.getString("id_rider");
-                                    ArrayList<String> list_collectPoints = (ArrayList<String>) doc.get("list_collectPoints");
+                                    //ArrayList<String> list_collectPoints = (ArrayList<String>) doc.get("list_collectPoints");
                                     String city = doc.getString("city");
 
                                     Tour tour = new Tour(id, date, id_Rider, city);
-                                    tour.setList_collectPoints(list_collectPoints);
+                                    //tour.setList_collectPoints((List<String>) doc.get("list_collectPoints"));
+                                    List<String> group = (List<String>) doc.get("list_collectPoints");
+                                    for (String item : group)
+                                        tour.addCollectPoint(item);
                                     listTours.add(tour);
                                 }
                                 tourAdapter.notifyDataSetChanged();
+
                             }
                         });
             }

@@ -36,7 +36,7 @@ public class CollectPointAdapter extends ArrayAdapter<CollectPoint> {
         }
 
 
-        ((TextView)convertView.findViewById(R.id.tvCollectPointName)).setText(collectPoint.getName());
+        ((TextView)convertView.findViewById(R.id.tvTourName)).setText(collectPoint.getName());
         ((TextView)convertView.findViewById(R.id.tvApproximativeTime)).setText(collectPoint.getApproximativeTime());
 
 

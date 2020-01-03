@@ -1,15 +1,21 @@
 package fr.aylan.dailycollect.driver.model;
 
-import java.util.ArrayList;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class Tour {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Tour  implements Parcelable {
 
     private int id;
     // dd/mm/yyyy
     private String date;
     private String id_Rider;
-    private ArrayList<String> list_collectPoints;
+    private List<String> list_collectPoints;
     private String city;
+
+
 
 
     public Tour(int id, String date, String id_Rider, String city) {
@@ -45,11 +51,11 @@ public class Tour {
         this.id_Rider = id_Rider;
     }
 
-    public ArrayList<String> getList_collectPoints() {
+    public List<String> getList_collectPoints() {
         return list_collectPoints;
     }
 
-    public void setList_collectPoints(ArrayList<String> list_collectPoints) {
+    public void setList_collectPoints(List<String> list_collectPoints) {
         this.list_collectPoints = list_collectPoints;
     }
 
@@ -61,11 +67,43 @@ public class Tour {
         this.city = city;
     }
 
-    public void addCollectPoint(String collectPoint){
-        this.addCollectPoint(collectPoint);
+    public void addCollectPoint(String _collectPoint){
+        this.list_collectPoints.add(_collectPoint);
     }
 
     public String getItem(int index){
         return  list_collectPoints.get(index);
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(date);
+        dest.writeString(id_Rider);
+        dest.writeList(list_collectPoints);
+        dest.writeString(city);
+    }
+
+    public Tour(Parcel in) {
+        id = in.readInt();
+        date = in.readString();
+        id_Rider = in.readString();
+        list_collectPoints = in.readArrayList(String.class.getClassLoader());
+        city = in.readString();
+    }
+
+    public static final Parcelable.Creator<Tour> CREATOR = new Parcelable.Creator<Tour>() {
+        public Tour createFromParcel(Parcel in) {
+            return new Tour(in);
+        }
+
+        public Tour[] newArray(int size) {
+            return new Tour[size];
+        }
+    };
 }

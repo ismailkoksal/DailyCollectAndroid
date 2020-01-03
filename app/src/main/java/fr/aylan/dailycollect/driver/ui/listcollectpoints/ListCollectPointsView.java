@@ -10,14 +10,14 @@ import fr.aylan.dailycollect.R;
 import fr.aylan.dailycollect.driver.model.CollectPoint;
 
 
-public class ListCollectPoints extends FrameLayout {
+public class ListCollectPointsView extends FrameLayout {
 
     TimePickerDialog picker;
     private ArrayList lisCPNames = new ArrayList<CollectPoint>();
     ListView list ;
     private CollectPointAdapter   collectPointAdapter;
 
-    public ListCollectPoints(@NonNull Context context,  ArrayList<CollectPoint> listPointsCollect) {
+    public ListCollectPointsView(@NonNull Context context, ArrayList<CollectPoint> listPointsCollect) {
         super(context);
 
 
