@@ -39,7 +39,7 @@ public class TabFragmentTourDetail extends Fragment {
                              Bundle savedInstanceState) {
         
         final View root = inflater.inflate(R.layout.fragment_detail_tour, container, false);
-        ((TextView)root.findViewById(R.id.tvTourName)).setText("Tour " + (tour.getId()+1));
+        ((TextView)root.findViewById(R.id.tvTourName)).setText("Tournée : " + (tour.getId()+1));
         ((TextView)root.findViewById(R.id.tvDate)).setText(tour.getDate());
 
         listIds = new ArrayList();
