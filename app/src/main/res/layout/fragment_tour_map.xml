@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".driver.ui.detailtour.TabFragmentTourDetail">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".driver.ui.detailtour.TabFragmentTourDetail">
 
 
     <com.google.android.gms.maps.MapView
@@ -51,6 +51,94 @@ tools:context=".driver.ui.detailtour.TabFragmentTourDetail">
         app:layout_constraintStart_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
         tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/navigationBtn"
+        android:layout_width="157dp"
+        android:layout_height="74dp"
+        android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTourName"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/collectPDetailView"
+        android:layout_width="0dp"
+        android:layout_height="110dp"
+        android:background="#61D095"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tcNameCollectPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            android:textColor="@color/oviveDarcktBlue"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_place_black_24dp"
+            android:tint="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/imageView7"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_time_gray_24dp"
+            android:tint="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvAdressCollectPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="TextView"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="@+id/imageView5" />
+
+        <TextView
+            android:id="@+id/tvTimeCollectPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="TextView"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+            app:layout_constraintStart_toEndOf="@+id/imageView7"
+            app:layout_constraintTop_toTopOf="@+id/imageView7" />
+
+        <Button
+            android:id="@+id/btnCloseDetail"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:drawable/ic_menu_close_clear_cancel"
+            android:backgroundTint="#0D47A1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

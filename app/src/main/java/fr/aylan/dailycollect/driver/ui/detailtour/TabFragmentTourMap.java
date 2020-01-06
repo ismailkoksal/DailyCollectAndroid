@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -12,17 +13,21 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import fr.aylan.dailycollect.App;
 import fr.aylan.dailycollect.R;
+import fr.aylan.dailycollect.driver.model.CollectPoint;
 import fr.aylan.dailycollect.driver.model.Tour;
 
 
@@ -35,6 +40,8 @@ public class TabFragmentTourMap extends Fragment   {
     List listIds;
     Boolean firstPoint = true;
     LatLng firstPointLatLong;
+    View detailView;
+    HashMap<Integer,CollectPoint> lisPoints = new HashMap<>();
 
 
     public TabFragmentTourMap(Tour t) {
@@ -45,9 +52,24 @@ public class TabFragmentTourMap extends Fragment   {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView =  inflater.inflate(R.layout.fragment_tour_map, container, false);
+        final View rootView =  inflater.inflate(R.layout.fragment_tour_map, container, false);
         mMapView = rootView.findViewById(R.id.mapView);
         mMapView.onCreate(savedInstanceState);
+        detailView = rootView.findViewById(R.id.collectPDetailView);
+        detailView.setVisibility(View.GONE);
+        (rootView.findViewById(R.id.navigationBtn)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onNavigationClick();
+            }
+        });
+
+        (rootView.findViewById(R.id.btnCloseDetail)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onCloseDétailModal(detailView);
+            }
+        });
 
         mMapView.onResume(); // needed to get the map to display immediately
 
@@ -61,6 +83,21 @@ public class TabFragmentTourMap extends Fragment   {
             @Override
             public void onMapReady(GoogleMap mMap) {
                 googleMap = mMap;
+                googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                    @Override
+                    public boolean onMarkerClick(Marker marker) {
+                        detailView.setVisibility(View.VISIBLE);
+                        int position = (int)(marker.getTag());
+
+                        CollectPoint c = lisPoints.get(position);
+
+                        ((TextView)rootView.findViewById(R.id.tcNameCollectPoint)).setText(c.getName());
+                        ((TextView)rootView.findViewById(R.id.tvAdressCollectPoint)).setText(c.getName());
+                        ((TextView)rootView.findViewById(R.id.tvTimeCollectPoint)).setText(c.getApproximativeTime());
+
+                        return false;
+                    }
+                });
 
                 // For showing a move to my location button
                 //googleMap.setMyLocationEnabled(true);
@@ -88,6 +125,7 @@ public class TabFragmentTourMap extends Fragment   {
                                             String longitude  = doc.getString("longitude");
                                             String name = doc.getString("name");
                                             String approximativeTime  = doc.getString("approximativeTime");
+                                            String clientId  = doc.getString("clientId");
                                             // For dropping a marker at a point on the Map
                                             LatLng  latlong = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
                                             if (firstPoint) {
@@ -95,7 +133,15 @@ public class TabFragmentTourMap extends Fragment   {
                                                 firstPoint = false;
                                             }
 
-                                            googleMap.addMarker(new MarkerOptions().position(latlong).title(name).snippet(approximativeTime));
+                                            CollectPoint c = new CollectPoint( Integer.parseInt(listIds.get(i).toString()),  clientId,  name,  approximativeTime,  latitude,   longitude);
+                                            lisPoints.put(Integer.parseInt(listIds.get(i).toString()),c);
+
+                                            Marker marker = googleMap.addMarker(new MarkerOptions()
+                                                            .position(latlong)
+                                                            .title(name)
+                                                            .snippet(approximativeTime)
+                                                            .icon(BitmapDescriptorFactory.defaultMarker(170.0f)));
+                                            marker.setTag(Integer.parseInt(listIds.get(i).toString()));
 
                                         }
                                     }
@@ -112,6 +158,17 @@ public class TabFragmentTourMap extends Fragment   {
 
         return  rootView;
 
+
+    }
+
+
+    public void onNavigationClick(){
+        System.out.println("hii");
+
+    }
+
+    public void onCloseDétailModal(View view){
+        view.setVisibility(View.GONE);
 
     }
 }
