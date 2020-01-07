@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".driver.ui.tourinfo.TourInfo">
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <Spinner
+                android:id="@+id/listVehiclepinner"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="40dp"
+                android:backgroundTint="@color/oviveLightBlue"
+                android:dropDownWidth="match_parent"
+                android:foreground="@color/oviveGray"
+                app:layout_constraintEnd_toEndOf="@+id/listRiderpinner"
+                app:layout_constraintHorizontal_bias="0.378"
+                app:layout_constraintStart_toStartOf="@+id/listRiderpinner"
+                app:layout_constraintTop_toBottomOf="@+id/listRiderpinner" />
+
+            <Spinner
+                android:id="@+id/listRiderpinner"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="40dp"
+                android:backgroundTint="@color/oviveLightBlue"
+                android:dropDownWidth="match_parent"
+                android:foreground="@color/oviveGray"
+                app:layout_constraintEnd_toEndOf="@+id/listvCitypinner"
+                app:layout_constraintStart_toStartOf="@+id/listvCitypinner"
+                app:layout_constraintTop_toBottomOf="@+id/listvCitypinner" />
+
+
+            <DatePicker
+                android:id="@+id/datePicker1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="50dp"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/listVehiclepinner" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/city"
+                android:textColor="@color/oviveLightBlue"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/listvCitypinner"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Spinner
+                android:id="@+id/listvCitypinner"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="40dp"
+                android:backgroundTint="@color/oviveLightBlue"
+                android:dropDownWidth="match_parent"
+                android:foreground="@color/oviveGray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.531"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/rider"
+                android:textColor="@color/oviveLightBlue"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/listRiderpinner"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/listvCitypinner" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/vehicle"
+                android:textColor="@color/oviveLightBlue"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/listVehiclepinner"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/listRiderpinner" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+    <Button
+        android:id="@+id/btnValidate"
+        android:layout_width="106dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/btn_border_back"
+        android:backgroundTint="@color/oviveDarckGreen"
+        android:onClick="next"
+        android:text="@string/next"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="106dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/btn_border_back"
+        android:backgroundTint="@color/oviveLightBlue"
+        android:text="@string/cancel"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnValidate" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

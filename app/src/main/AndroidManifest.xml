@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="fr.aylan.dailycollect">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION">
 
@@ -15,7 +16,7 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme"
     tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".driver.ui.validatepointscollectlist.ValidateCollectPointsList"
+        <activity android:name=".driver.ui.tourinfo.TourInfo"></activity>
             android:label="@string/validate_tour_label">
         </activity>
         <activity
