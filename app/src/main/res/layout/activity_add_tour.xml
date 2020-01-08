@@ -16,7 +16,7 @@
         android:background="@drawable/btn_border_back"
         android:backgroundTint="@color/oviveDarckGreen"
         android:onClick="validateList"
-        android:text="@string/validate"
+        android:text="@string/next"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="@+id/scrollView2"

@@ -123,8 +123,11 @@ public class HomeFragment extends Fragment {
                                     Tour tour = new Tour(id, date, id_Rider, city);
                                     //tour.setList_collectPoints((List<String>) doc.get("list_collectPoints"));
                                     List<String> group = (List<String>) doc.get("list_collectPoints");
-                                    for (String item : group)
-                                        tour.addCollectPoint(item);
+                                    if (group != null){
+                                        for (String item : group)
+                                            tour.addCollectPoint(item);
+                                    }
+
                                     listTours.add(tour);
                                 }
                                 tourAdapter.notifyDataSetChanged();

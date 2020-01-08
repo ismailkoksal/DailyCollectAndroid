@@ -1,26 +1,27 @@
 package fr.aylan.dailycollect.driver.ui.addtour;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.InputType;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
+import android.widget.Spinner;
 import android.widget.TimePicker;
-
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import java.util.ArrayList;
 import java.util.Calendar;
-
-import fr.aylan.dailycollect.MainActivity;
+import fr.aylan.dailycollect.App;
 import fr.aylan.dailycollect.R;
+import fr.aylan.dailycollect.driver.model.CollectPoint;
+import fr.aylan.dailycollect.driver.ui.tourinfo.TourInfo;
 import fr.aylan.dailycollect.driver.ui.validatepointscollectlist.ValidateCollectPointsList;
 
 public class AddTour extends AppCompatActivity {
@@ -30,6 +31,9 @@ public class AddTour extends AppCompatActivity {
     ImageButton btnAddTourItem;
     int nbrItems;
     LinearLayout listItemsLayout;
+    ArrayList<CollectPoint> collectPoints = new ArrayList<>();
+    ArrayList<Spinner> listSpinners = new ArrayList<>();
+    String[] pointsNames;
 
 
 
@@ -49,16 +53,50 @@ public class AddTour extends AppCompatActivity {
                 addTourItem();
             }
         });
+        getCollectPoints();
 
+    }
+
+    private void getCollectPoints() {
+        ((App) (getApplication()) ).db.collection("collectPoints")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value,
+                                        @Nullable FirebaseFirestoreException e) {
+                        if (e != null) {
+                            return;
+                        }
+
+                        for (QueryDocumentSnapshot doc : value) {
+
+                            int id = Integer.parseInt(doc.getId());
+                            String clientId = doc.getString("clientId");
+                            String name = doc.getString("name");
+                            String approximativeTime  = doc.getString("approximativeTime");
+                            String latitude  = doc.getString("latitude");
+                            String longitude  = doc.getString("longitude");
+                            CollectPoint cp = new CollectPoint( id, clientId,  name,  approximativeTime, latitude, longitude);
+                            collectPoints.add(cp);
+                        }
+                        pointsNames = new String[collectPoints.size()];
+                        for (int i=0; i< collectPoints.size(); i++){
+                            pointsNames[i] = collectPoints.get(i).getName();
+                        }
+
+                    }
+                });
     }
 
 
     public void addTourItem(){
 
-        String[] temp = {"item 1", "item 2", "item 3"};
+
 
         nbrItems++;
-        TourItemView itemView = new TourItemView(this, nbrItems,temp);
+        TourItemView itemView = new TourItemView(AddTour.this, nbrItems,pointsNames);
+
+        Spinner spinner = itemView.findViewById(R.id.listCPNamesSpinner);
+        listSpinners.add(spinner);
 
         itemView.findViewById(R.id.etMinTime).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,9 +112,8 @@ public class AddTour extends AppCompatActivity {
         });
 
         listItemsLayout.addView(itemView,listItemsLayout.getChildCount()-1);
-
-
     }
+
 
     public void showCalendar(){
         final Calendar cldr = Calendar.getInstance();
@@ -96,7 +133,19 @@ public class AddTour extends AppCompatActivity {
 
     public void validateList(View view){
 
-        Intent intent = new Intent(this, ValidateCollectPointsList.class);
+        ArrayList<CollectPoint> selectedCPoints = new ArrayList<>();
+
+        for (Spinner s : listSpinners){
+            for (CollectPoint c: collectPoints){
+                if(c.getName().equals(s.getSelectedItem().toString())){
+                    selectedCPoints.add(c);
+                }
+            }
+
+        }
+
+        Intent intent = new Intent(this, TourInfo.class);
+        intent.putParcelableArrayListExtra("selectedCPoints", selectedCPoints);
         startActivity(intent);
 
     }

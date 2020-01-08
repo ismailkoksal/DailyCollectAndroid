@@ -21,7 +21,7 @@
         tools:text="Point 1:" />
 
     <Spinner
-        android:id="@+id/ressourcesSpinner"
+        android:id="@+id/listCPNamesSpinner"
         android:layout_width="300dp"
         android:layout_height="41dp"
         android:layout_marginTop="16dp"
@@ -43,7 +43,7 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/ressourcesSpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/listCPNamesSpinner" />
 
     <EditText
 
@@ -56,8 +56,8 @@
         android:hint="hh:mm"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/ressourcesSpinner"
-        app:layout_constraintTop_toBottomOf="@+id/ressourcesSpinner" />
+        app:layout_constraintEnd_toEndOf="@+id/listCPNamesSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/listCPNamesSpinner" />
 
     <TextView
         android:id="@+id/textView5"
@@ -69,7 +69,7 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/etMaxTime"
-        app:layout_constraintTop_toBottomOf="@+id/ressourcesSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/listCPNamesSpinner"
         app:layout_constraintVertical_bias="0.463" />
 
     <View

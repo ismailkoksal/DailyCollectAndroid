@@ -5,20 +5,19 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION">
-
-    </uses-permission>
-    <application android:name=".App"
-    android:allowBackup="true"
-    android:icon="@mipmap/ic_launcher"
-    android:label="@string/app_name"
-    android:roundIcon="@mipmap/ic_launcher_round"
-    android:supportsRtl="true"
-    android:theme="@style/AppTheme"
-    tools:ignore="GoogleAppIndexingWarning">
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".driver.ui.tourinfo.TourInfo"></activity>
-            android:label="@string/validate_tour_label">
-        </activity>
+        <activity
+            android:name=".driver.ui.validatepointscollectlist.ValidateCollectPointsList"
+            android:label="@string/validate_tour_label"></activity>
         <activity
             android:name=".driver.ui.addtour.AddTour"
             android:label="@string/add_tour">

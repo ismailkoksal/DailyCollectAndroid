@@ -47,66 +47,52 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <Spinner
-            android:id="@+id/ressourcesSpinner"
-            android:layout_width="144dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:backgroundTint="@color/oviveLightBlue"
-            android:dropDownWidth="144dp"
-            android:foreground="@color/oviveGray"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/de"
             android:layout_width="20dp"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="De"
             android:textColor="@android:color/black"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/ressourcesSpinner"
-            app:layout_constraintStart_toEndOf="@+id/ressourcesSpinner"
-            app:layout_constraintTop_toTopOf="@+id/ressourcesSpinner" />
+            app:layout_constraintBottom_toBottomOf="@+id/tvDate"
+            app:layout_constraintStart_toEndOf="@+id/divider2"
+            app:layout_constraintTop_toTopOf="@+id/tvDate" />
 
         <TextView
             android:id="@+id/tvStartTime"
             android:layout_width="50dp"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="19h30"
             android:textColor="@color/oviveLightBlue"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/ressourcesSpinner"
+            app:layout_constraintBottom_toBottomOf="@+id/de"
             app:layout_constraintStart_toEndOf="@+id/de"
-            app:layout_constraintTop_toTopOf="@+id/ressourcesSpinner" />
+            app:layout_constraintTop_toTopOf="@+id/de" />
 
         <TextView
             android:id="@+id/a"
             android:layout_width="20dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="8dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="À"
             android:textColor="@android:color/black"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/ressourcesSpinner"
+            app:layout_constraintBottom_toBottomOf="@+id/tvStartTime"
             app:layout_constraintStart_toEndOf="@+id/tvStartTime"
-            app:layout_constraintTop_toTopOf="@+id/ressourcesSpinner" />
+            app:layout_constraintTop_toTopOf="@+id/tvStartTime" />
 
         <TextView
-            android:id="@+id/eteEndTime"
+            android:id="@+id/tvEndTime"
             android:layout_width="50dp"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:ems="10"
             android:inputType="textPersonName"
@@ -116,6 +102,117 @@
             app:layout_constraintBottom_toBottomOf="@+id/a"
             app:layout_constraintStart_toEndOf="@+id/a"
             app:layout_constraintTop_toTopOf="@+id/a" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_calendar_month" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView8"
+            app:layout_constraintStart_toStartOf="@+id/imageView8"
+            app:layout_constraintTop_toBottomOf="@+id/imageView11"
+            app:srcCompat="@drawable/ic_rider_selected" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageView9"
+            app:layout_constraintStart_toStartOf="@+id/imageView9"
+            app:layout_constraintTop_toBottomOf="@+id/imageView9"
+            app:srcCompat="@drawable/ic_car" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Le"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+            app:layout_constraintStart_toEndOf="@+id/imageView8"
+            app:layout_constraintTop_toTopOf="@+id/imageView8" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/oviveLightBlue"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintStart_toEndOf="@+id/textView6"
+            app:layout_constraintTop_toTopOf="@+id/textView6"
+            tools:text="08/01/2020" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="2dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="16dp"
+            android:background="@color/oviveLightBlue"
+            app:layout_constraintBottom_toBottomOf="@+id/tvDate"
+            app:layout_constraintStart_toEndOf="@+id/tvDate"
+            app:layout_constraintTop_toTopOf="@+id/tvDate" />
+
+        <TextView
+            android:id="@+id/tvRider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textColor="@color/oviveLightBlue"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+            app:layout_constraintStart_toEndOf="@+id/imageView9"
+            app:layout_constraintTop_toTopOf="@+id/imageView9"
+            tools:text="Chauffeur" />
+
+        <TextView
+            android:id="@+id/tvVehicle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            tools:text="TextView"
+            android:textColor="@color/oviveLightBlue"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+            app:layout_constraintStart_toEndOf="@+id/imageView10"
+            app:layout_constraintTop_toTopOf="@+id/imageView10" />
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView8"
+            app:layout_constraintStart_toStartOf="@+id/imageView8"
+            app:layout_constraintTop_toBottomOf="@+id/imageView8"
+            app:srcCompat="@drawable/ic_place_black_24dp" />
+
+        <TextView
+            android:id="@+id/tvCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            tools:text="TextView"
+            android:textColor="@color/oviveLightBlue"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView11"
+            app:layout_constraintStart_toEndOf="@+id/imageView11"
+            app:layout_constraintTop_toTopOf="@+id/imageView11" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

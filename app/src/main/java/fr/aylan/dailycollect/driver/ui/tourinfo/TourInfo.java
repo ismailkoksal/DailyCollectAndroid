@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.Spinner;
 
 import com.google.firebase.firestore.EventListener;
@@ -36,6 +37,7 @@ public class TourInfo extends AppCompatActivity {
     Spinner spinnerCity;
     Spinner spinnerVehicle;
     Spinner spinnerRider;
+    DatePicker datePicker;
 
     ArrayList<CollectPoint> selectedCPoints;
 
@@ -54,6 +56,7 @@ public class TourInfo extends AppCompatActivity {
         spinnerCity = findViewById(R.id.listvCitypinner);
         spinnerVehicle = findViewById(R.id.listVehiclepinner);
         spinnerRider = findViewById(R.id.listRiderpinner);
+        datePicker = findViewById(R.id.datePicker);
 
 
         vehicleAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, vehicles);
@@ -72,14 +75,17 @@ public class TourInfo extends AppCompatActivity {
 
     public void next(View view){
         String city = spinnerCity.getSelectedItem().toString();
-        String rider = spinnerCity.getSelectedItem().toString();
-        String vehivle = spinnerCity.getSelectedItem().toString();
+        String rider = spinnerRider.getSelectedItem().toString();
+        String vehicle = spinnerVehicle.getSelectedItem().toString();
+        String date = datePicker.getDayOfMonth() + "/" + (datePicker.getMonth()+1) + "/" + datePicker.getYear();
 
        selectedCPoints = getIntent().getParcelableArrayListExtra("selectedCPoints");
 
         Intent intent = new Intent(this, ValidateCollectPointsList.class);
         intent.putExtra("city",city);
-        intent.putExtra("rider",vehivle);
+        intent.putExtra("rider",rider);
+        intent.putExtra("vehicle",vehicle);
+        intent.putExtra("date",date);
         intent.putParcelableArrayListExtra("selectedCPoints", selectedCPoints);
         startActivity(intent);
 

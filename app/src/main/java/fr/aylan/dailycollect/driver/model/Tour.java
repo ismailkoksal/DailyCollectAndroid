@@ -12,7 +12,7 @@ public class Tour  implements Parcelable {
     // dd/mm/yyyy
     private String date;
     private String id_Rider;
-    private List<String> list_collectPoints;
+    private ArrayList<String> list_collectPoints;
     private String city;
 
 
@@ -51,11 +51,11 @@ public class Tour  implements Parcelable {
         this.id_Rider = id_Rider;
     }
 
-    public List<String> getList_collectPoints() {
+    public ArrayList<String> getList_collectPoints() {
         return list_collectPoints;
     }
 
-    public void setList_collectPoints(List<String> list_collectPoints) {
+    public void setList_collectPoints(ArrayList<String> list_collectPoints) {
         this.list_collectPoints = list_collectPoints;
     }
 

@@ -27,7 +27,7 @@
                 android:id="@+id/listVehiclepinner"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="60dp"
                 android:backgroundTint="@color/oviveLightBlue"
                 android:dropDownWidth="match_parent"
                 android:foreground="@color/oviveGray"
@@ -40,7 +40,7 @@
                 android:id="@+id/listRiderpinner"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="60dp"
                 android:backgroundTint="@color/oviveLightBlue"
                 android:dropDownWidth="match_parent"
                 android:foreground="@color/oviveGray"
@@ -50,7 +50,7 @@
 
 
             <DatePicker
-                android:id="@+id/datePicker1"
+                android:id="@+id/datePicker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -92,24 +92,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
                 android:text="@string/rider"
                 android:textColor="@color/oviveLightBlue"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/listRiderpinner"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/listvCitypinner" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
                 android:text="@string/vehicle"
                 android:textColor="@color/oviveLightBlue"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toTopOf="@+id/listVehiclepinner"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/listRiderpinner" />
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

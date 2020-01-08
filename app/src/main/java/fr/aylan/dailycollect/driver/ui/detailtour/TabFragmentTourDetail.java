@@ -43,7 +43,7 @@ public class TabFragmentTourDetail extends Fragment {
         ((TextView)root.findViewById(R.id.tvDate)).setText(tour.getDate());
 
         listIds = new ArrayList();
-        List<String> temp =  tour.getList_collectPoints();
+        ArrayList<String> temp =  tour.getList_collectPoints();
         for(String s : temp){
             listIds.add(s);
         }

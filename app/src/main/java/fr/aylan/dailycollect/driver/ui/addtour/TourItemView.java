@@ -26,7 +26,7 @@ public class TourItemView extends FrameLayout {
         _id = id;
         inflate(context, R.layout.add_tour_item, this);
 
-        Spinner dropdown = findViewById(R.id.ressourcesSpinner);
+        Spinner dropdown = findViewById(R.id.listCPNamesSpinner);
 
         ((EditText)findViewById(R.id.etMinTime)).setInputType(InputType.TYPE_NULL);
         ((EditText)findViewById(R.id.etMaxTime)).setInputType(InputType.TYPE_NULL);

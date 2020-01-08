@@ -29,4 +29,8 @@
     <string name="validate">Valider</string>
     <string name="cancel">Annuler</string>
     <string name="validate_tour_label">Valider liste des points</string>
+    <string name="next">Suivant</string>
+    <string name="rider">Chauffeur</string>
+    <string name="city">Ville</string>
+    <string name="vehicle">Vehicule</string>
 </resources>

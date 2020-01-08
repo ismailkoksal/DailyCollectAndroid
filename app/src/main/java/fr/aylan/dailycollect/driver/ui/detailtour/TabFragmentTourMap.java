@@ -1,6 +1,8 @@
 package fr.aylan.dailycollect.driver.ui.detailtour;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -163,7 +165,10 @@ public class TabFragmentTourMap extends Fragment   {
 
 
     public void onNavigationClick(){
-        System.out.println("hii");
+        Uri navigation = Uri.parse("google.navigation:q="+firstPointLatLong.latitude+","+firstPointLatLong.longitude+"");
+        Intent navigationIntent = new Intent(Intent.ACTION_VIEW, navigation);
+        navigationIntent.setPackage("com.google.android.apps.maps");
+        startActivity(navigationIntent);
 
     }
 
