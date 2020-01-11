@@ -35,4 +35,9 @@
     <string name="vehicle">Vehicule</string>
     <string name="failed_to_add">L\'ajout de la tournée a echoué.</string>
     <string name="added_successfuly">La Tournée a été ajouté avec succes</string>
+    <string name="title_activity_ovive_main">OviveMAinActivity</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_tools">Tools</string>
 </resources>

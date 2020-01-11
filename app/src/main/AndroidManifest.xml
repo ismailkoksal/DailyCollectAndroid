@@ -16,10 +16,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".driver.ui.tourinfo.TourInfo"></activity>
+        <activity
+            android:name=".ovive.OviveMAinActivity"
+            android:label="@string/title_activity_ovive_main"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".driver.ui.tourinfo.TourInfo" />
         <activity
             android:name=".driver.ui.validatepointscollectlist.ValidateCollectPointsList"
-            android:label="@string/validate_tour_label"></activity>
+            android:label="@string/validate_tour_label" />
         <activity
             android:name=".driver.ui.addtour.AddTour"
             android:label="@string/add_tour">
