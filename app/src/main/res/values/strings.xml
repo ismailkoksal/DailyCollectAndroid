@@ -33,4 +33,6 @@
     <string name="rider">Chauffeur</string>
     <string name="city">Ville</string>
     <string name="vehicle">Vehicule</string>
+    <string name="failed_to_add">L\'ajout de la tournée a echoué.</string>
+    <string name="added_successfuly">La Tournée a été ajouté avec succes</string>
 </resources>
