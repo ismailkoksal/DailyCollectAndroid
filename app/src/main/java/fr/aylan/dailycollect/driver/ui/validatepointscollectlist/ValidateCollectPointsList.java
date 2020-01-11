@@ -4,10 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -19,10 +23,13 @@ import com.google.firestore.v1.WriteResult;
 
 import java.util.ArrayList;
 import fr.aylan.dailycollect.App;
+import fr.aylan.dailycollect.MainActivity;
 import fr.aylan.dailycollect.R;
+import fr.aylan.dailycollect.driver.TourList;
 import fr.aylan.dailycollect.driver.model.CollectPoint;
 import fr.aylan.dailycollect.driver.model.Tour;
 import fr.aylan.dailycollect.driver.ui.listcollectpoints.ListCollectPointsView;
+import fr.aylan.dailycollect.driver.ui.plannification.HomeFragment;
 
 public class ValidateCollectPointsList extends AppCompatActivity {
 
@@ -94,10 +101,24 @@ public class ValidateCollectPointsList extends AppCompatActivity {
                 ((App) (getApplication()) ).db
                         .collection("tours")
                         .document(String.valueOf(nbrDocuments))
-                        .set(tour, SetOptions.merge());
-
+                        .set(tour, SetOptions.merge())
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(ValidateCollectPointsList.this, getString(R.string.added_successfuly),Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(ValidateCollectPointsList.this, TourList.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
+                                Log.d(TAG, "DocumentSnapshot successfully written!");
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(ValidateCollectPointsList.this, getString(R.string.failed_to_add),Toast.LENGTH_LONG).show();
+                                Log.w(TAG, "Error writing document", e);
+                            }
+                        });
     }
-
-
 
 }
