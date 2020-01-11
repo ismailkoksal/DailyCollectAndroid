@@ -12,7 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import fr.aylan.dailycollect.ovive.R;
+import fr.aylan.dailycollect.R;
+
 
 public class SendFragment extends Fragment {
 
@@ -22,7 +23,7 @@ public class SendFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         sendViewModel =
                 ViewModelProviders.of(this).get(SendViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_send, container, false);
+        View root = inflater.inflate(R.layout.ovive_fragment_send, container, false);
         final TextView textView = root.findViewById(R.id.text_send);
         sendViewModel.getText().observe(this, new Observer<String>() {
             @Override
