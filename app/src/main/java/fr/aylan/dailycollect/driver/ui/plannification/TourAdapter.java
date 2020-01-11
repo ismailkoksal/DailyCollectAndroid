@@ -31,7 +31,7 @@ public class TourAdapter  extends ArrayAdapter<Tour> {
         Tour tour = getItem(position);
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(_context).inflate(R.layout.list_item_tournee, parent, false);
+            convertView = LayoutInflater.from(_context).inflate(R.layout.rider_list_item_tournee, parent, false);
         }
 
 

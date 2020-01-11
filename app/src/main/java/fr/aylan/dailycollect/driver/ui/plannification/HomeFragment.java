@@ -1,7 +1,5 @@
 package fr.aylan.dailycollect.driver.ui.plannification;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,7 +43,7 @@ public class HomeFragment extends Fragment {
         ((App) (getParentFragment().getActivity().getApplication()) ).initialize();
 
         db = FirebaseFirestore.getInstance();
-        root = inflater.inflate(R.layout.fragment_home, container, false);
+        root = inflater.inflate(R.layout.rider_fragment_home, container, false);
         tourAdapter = new TourAdapter(getContext(), listTours);
         list = root.findViewById(R.id.list_view_tours);
         list.setAdapter(tourAdapter);

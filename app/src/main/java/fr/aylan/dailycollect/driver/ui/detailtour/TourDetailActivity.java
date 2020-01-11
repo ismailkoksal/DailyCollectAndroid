@@ -18,7 +18,7 @@ public class TourDetailActivity extends AppCompatActivity   {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_tour);
+        setContentView(R.layout.rider_activity_detail_tour);
 
         viewPager =  findViewById(R.id.viewPager);
         tabLayout =  findViewById(R.id.tabLayout);

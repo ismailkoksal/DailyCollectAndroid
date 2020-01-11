@@ -9,19 +9,19 @@
         android:id="@+id/nav_home"
         android:name="fr.aylan.dailycollect.driver.ui.plannification.HomeFragment"
         android:label="@string/driver_menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/rider_fragment_home" />
 
     <fragment
         android:id="@+id/nav_gallery"
         android:name="fr.aylan.dailycollect.driver.ui.todaytour.GalleryFragment"
         android:label="@string/menu_today_tour"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/rider_fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="fr.aylan.dailycollect.driver.ui.signout.SlideshowFragment"
         android:label="@string/menu_quit"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/rider_fragment_slideshow" />
 
 
 </navigation>

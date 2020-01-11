@@ -32,7 +32,7 @@ public class CollectPointAdapter extends ArrayAdapter<CollectPoint> {
         CollectPoint collectPoint = getItem(position);
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_collect_point, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.rider_list_item_collect_point, parent, false);
         }
 
 

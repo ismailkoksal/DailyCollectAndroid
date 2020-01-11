@@ -24,7 +24,7 @@ public class TourItemView extends FrameLayout {
         super(context);
 
         _id = id;
-        inflate(context, R.layout.add_tour_item, this);
+        inflate(context, R.layout.rider_add_tour_item, this);
 
         Spinner dropdown = findViewById(R.id.listCPNamesSpinner);
 

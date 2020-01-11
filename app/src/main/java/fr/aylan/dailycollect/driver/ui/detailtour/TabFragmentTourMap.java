@@ -1,11 +1,7 @@
 package fr.aylan.dailycollect.driver.ui.detailtour;
 
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,9 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -44,7 +39,6 @@ import fr.aylan.dailycollect.R;
 import fr.aylan.dailycollect.driver.model.CollectPoint;
 import fr.aylan.dailycollect.driver.model.Tour;
 import fr.aylan.dailycollect.driver.ui.detailtour.mapsroute.FetchURL;
-import fr.aylan.dailycollect.driver.ui.detailtour.mapsroute.MainActivity;
 import fr.aylan.dailycollect.driver.ui.detailtour.mapsroute.TaskLoadedCallback;
 
 
@@ -79,7 +73,7 @@ public class TabFragmentTourMap extends Fragment implements GoogleApiClient.Conn
                 .addApi(LocationServices.API)
                 .build();
 
-        final View rootView =  inflater.inflate(R.layout.fragment_tour_map, container, false);
+        final View rootView =  inflater.inflate(R.layout.rider_fragment_tour_map, container, false);
         mMapView = rootView.findViewById(R.id.mapView);
         mMapView.onCreate(savedInstanceState);
         detailView = rootView.findViewById(R.id.collectPDetailView);

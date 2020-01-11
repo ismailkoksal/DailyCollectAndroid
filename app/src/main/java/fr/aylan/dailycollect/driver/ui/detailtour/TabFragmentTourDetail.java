@@ -1,7 +1,6 @@
 package fr.aylan.dailycollect.driver.ui.detailtour;
 
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -38,7 +36,7 @@ public class TabFragmentTourDetail extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         
-        final View root = inflater.inflate(R.layout.fragment_detail_tour, container, false);
+        final View root = inflater.inflate(R.layout.rider_fragment_detail_tour, container, false);
         ((TextView)root.findViewById(R.id.tvTourName)).setText("Tournée : " + (tour.getId()+1));
         ((TextView)root.findViewById(R.id.tvDate)).setText(tour.getDate());
 

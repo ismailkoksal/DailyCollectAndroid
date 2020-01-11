@@ -16,7 +16,6 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 import fr.aylan.dailycollect.App;
 import fr.aylan.dailycollect.R;
@@ -46,7 +45,7 @@ public class TourInfo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tour_info);
+        setContentView(R.layout.rider_activity_tour_info);
 
         getVehicles();
         getCities();

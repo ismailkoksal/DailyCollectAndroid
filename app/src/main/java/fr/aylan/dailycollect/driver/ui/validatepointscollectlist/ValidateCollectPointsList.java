@@ -19,17 +19,14 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
-import com.google.firestore.v1.WriteResult;
 
 import java.util.ArrayList;
 import fr.aylan.dailycollect.App;
-import fr.aylan.dailycollect.MainActivity;
 import fr.aylan.dailycollect.R;
 import fr.aylan.dailycollect.driver.TourList;
 import fr.aylan.dailycollect.driver.model.CollectPoint;
 import fr.aylan.dailycollect.driver.model.Tour;
 import fr.aylan.dailycollect.driver.ui.listcollectpoints.ListCollectPointsView;
-import fr.aylan.dailycollect.driver.ui.plannification.HomeFragment;
 
 public class ValidateCollectPointsList extends AppCompatActivity {
 
@@ -48,7 +45,7 @@ public class ValidateCollectPointsList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getNbrTours();
 
-        setContentView(R.layout.activity_validate_collect_points_list);
+        setContentView(R.layout.rider_activity_validate_collect_points_list);
         holder = findViewById(R.id.pontsCollectholder);
         selectedCPoints = getIntent().getParcelableArrayListExtra("selectedCPoints");
         ((TextView) findViewById(R.id.tvStartTime)).setText(selectedCPoints.get(0).getApproximativeTime());

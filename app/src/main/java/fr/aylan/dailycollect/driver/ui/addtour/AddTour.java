@@ -22,7 +22,6 @@ import fr.aylan.dailycollect.App;
 import fr.aylan.dailycollect.R;
 import fr.aylan.dailycollect.driver.model.CollectPoint;
 import fr.aylan.dailycollect.driver.ui.tourinfo.TourInfo;
-import fr.aylan.dailycollect.driver.ui.validatepointscollectlist.ValidateCollectPointsList;
 
 public class AddTour extends AppCompatActivity {
 
@@ -41,7 +40,7 @@ public class AddTour extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_tour);
+        setContentView(R.layout.rider_activity_add_tour);
 
         listItemsLayout = findViewById(R.id.listItemsLayout);
 
