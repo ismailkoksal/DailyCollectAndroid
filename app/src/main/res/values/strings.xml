@@ -41,4 +41,13 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_tools">Tools</string>
     <string name="client">Client</string>
+    <string name="contact">Contact</string>
+    <string name="social_reason">Raison Sociale</string>
+    <string name="mail">Mail</string>
+    <string name="tel">Tél</string>
+    <string name="adress">Adresse</string>
+    <string name="subscription_date">Souscrit le</string>
+    <string name="contract_signing">Signature de Contrat</string>
+    <string name="contract_until">Fin de Contrat</string>
+    <string name="collect_day">Jour de collecte</string>
 </resources>

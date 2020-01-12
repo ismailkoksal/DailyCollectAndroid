@@ -51,7 +51,7 @@ public class ClientFragment extends Fragment {
         listenToMultiple();
 
 
-        String[] array = new String[]{getString(R.string.modify),getString(R.string.delete), getString(R.string.start_tour)};
+        String[] array = new String[]{getString(R.string.modify),getString(R.string.delete)};
 
         builder = new AlertDialog.Builder(getActivity());
 
@@ -94,9 +94,17 @@ public class ClientFragment extends Fragment {
                                     String director = doc.getString("director");
                                     String id_collect_point =  doc.getString("id_collect_point");
                                     String name = doc.getString("name");
+                                    String adresse = doc.getString("adresse");
+                                    String subscription_date = doc.getString("subscription_date");
+                                    String signature_date = doc.getString("signature_date");
+                                    String contract_end_date = doc.getString("contract_end_date");
+                                    String collect_day = doc.getString("collect_day");
 
 
-                                    Client client = new Client(id, logo, mail, tel, director, id_collect_point, name);
+
+
+                                    Client client = new Client(id, logo, mail, tel, director, id_collect_point, name
+                                    , adresse, subscription_date, signature_date, contract_end_date, collect_day);
                                     //tour.setList_collectPoints((List<String>) doc.get("list_collectPoints"));
 
                                     listClients.add(client);

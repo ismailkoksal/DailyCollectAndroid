@@ -6,7 +6,6 @@
     android:id="@+id/list_item_rel_lay"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:background="@drawable/corner_radius"
     android:backgroundTint="@android:color/white">
 
 
