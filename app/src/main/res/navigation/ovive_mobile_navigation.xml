@@ -14,7 +14,7 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="fr.aylan.dailycollect.ovive.ui.gallery.GalleryFragment"
+        android:name="fr.aylan.dailycollect.ovive.ui.clients.ClientFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/ovive_fragment_gallery" />
 

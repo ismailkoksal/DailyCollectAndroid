@@ -1,14 +1,14 @@
-package fr.aylan.dailycollect.ovive.ui.gallery;
+package fr.aylan.dailycollect.ovive.ui.clients;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class ClientViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public ClientViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is gallery fragment");
     }

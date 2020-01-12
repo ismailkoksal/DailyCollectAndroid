@@ -1,4 +1,4 @@
-package fr.aylan.dailycollect.ovive.ui.gallery;
+package fr.aylan.dailycollect.ovive.ui.clients;
 
 
 import android.content.Context;

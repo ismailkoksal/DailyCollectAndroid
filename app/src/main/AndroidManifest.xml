@@ -16,6 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ovive.ui.detailclient.ClientDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ovive.OviveMAinActivity" />
+        </activity>
         <activity
             android:name=".customer.CustomerMainActivity"
             android:label="@string/title_activity_customer_main"
