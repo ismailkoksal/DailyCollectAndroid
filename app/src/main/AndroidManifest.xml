@@ -17,9 +17,13 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".customer.CustomerMainActivity"
+            android:label="@string/title_activity_customer_main"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".ovive.OviveMAinActivity"
             android:label="@string/title_activity_ovive_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".driver.ui.tourinfo.TourInfo" />
         <activity
             android:name=".driver.ui.validatepointscollectlist.ValidateCollectPointsList"
@@ -51,9 +55,7 @@
         <activity
             android:name=".driver.TourList"
             android:label="@string/title_activity_liste_tournee"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
