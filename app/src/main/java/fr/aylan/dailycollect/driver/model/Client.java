@@ -1,6 +1,9 @@
 package fr.aylan.dailycollect.driver.model;
 
-public class Client {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Client   implements Parcelable {
 
     String id;
     String logo;
@@ -76,4 +79,41 @@ public class Client {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(logo);
+        dest.writeString(mail);
+        dest.writeString(tel);
+        dest.writeString(director);
+        dest.writeString(id_collect_point);
+        dest.writeString(name);
+
+    }
+
+    public Client(Parcel in) {
+        id = in.readString();
+        logo = in.readString();
+        mail = in.readString();
+        tel = in.readString();
+        director = in.readString();
+        id_collect_point = in.readString();
+        name = in.readString();
+    }
+
+    public static final Parcelable.Creator<Client> CREATOR = new Parcelable.Creator<Client>() {
+        public Client createFromParcel(Parcel in) {
+            return new Client(in);
+        }
+
+        public Client[] newArray(int size) {
+            return new Client[size];
+        }
+    };
 }

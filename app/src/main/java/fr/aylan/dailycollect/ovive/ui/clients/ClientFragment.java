@@ -1,4 +1,4 @@
-package fr.aylan.dailycollect.ovive.ui.gallery;
+package fr.aylan.dailycollect.ovive.ui.clients;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -25,11 +25,10 @@ import java.util.ArrayList;
 import fr.aylan.dailycollect.App;
 import fr.aylan.dailycollect.R;
 import fr.aylan.dailycollect.driver.model.Client;
-import fr.aylan.dailycollect.driver.model.Tour;
-import fr.aylan.dailycollect.driver.ui.detailtour.TourDetailActivity;
+import fr.aylan.dailycollect.ovive.ui.detailclient.ClientDetailActivity;
 
 
-public class GalleryFragment extends Fragment {
+public class ClientFragment extends Fragment {
 
     private ArrayList listClients = new ArrayList<Client>();
     ListView list ;
@@ -120,9 +119,9 @@ public class GalleryFragment extends Fragment {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getContext(), TourDetailActivity.class);
-                Tour tour = (Tour)listClients.get(position);
-                intent.putExtra(getString(R.string.tour),tour);
+                Intent intent = new Intent(getContext(), ClientDetailActivity.class);
+                Client client = (Client) listClients.get(position);
+                intent.putExtra(getString(R.string.client),client);
                 startActivity(intent);
             }
         });
