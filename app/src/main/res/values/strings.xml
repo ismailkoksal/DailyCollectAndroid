@@ -51,4 +51,7 @@
     <string name="contract_until">Fin de Contrat</string>
     <string name="collect_day">Jour de collecte</string>
     <string name="title_activity_customer_main">CustomerMainActivity</string>
+    <string name="email">Email</string>
+    <string name="password">Mot de passe</string>
+    <string name="sign_in">Connexion</string>
 </resources>
