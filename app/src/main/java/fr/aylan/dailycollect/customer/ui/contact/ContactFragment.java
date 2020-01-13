@@ -26,7 +26,6 @@ public class ContactFragment extends Fragment {
     private EditText emailField;
     private EditText subjectField;
     private EditText messageField;
-    private Button sendEmailButton;
 
     public ContactFragment() {
         // Required empty public constructor
@@ -52,8 +51,8 @@ public class ContactFragment extends Fragment {
         emailField = view.findViewById(R.id.fieldEmail);
         subjectField = view.findViewById(R.id.fieldSubject);
         messageField = view.findViewById(R.id.fieldMessage);
-        sendEmailButton = view.findViewById(R.id.sendEmailButton);
 
+        Button sendEmailButton = view.findViewById(R.id.sendEmailButton);
         sendEmailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

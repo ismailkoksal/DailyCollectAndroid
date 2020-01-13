@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity implements
             return;
         }
 
-        progressBar.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(ProgressBar.VISIBLE);
 
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity implements
                             updateUI(null);
                         }
 
-                        progressBar.setVisibility(View.GONE);
+                        progressBar.setVisibility(ProgressBar.INVISIBLE);
                     }
                 });
     }
@@ -91,7 +91,7 @@ public class LoginActivity extends AppCompatActivity implements
             return;
         }
 
-        progressBar.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(ProgressBar.VISIBLE);
 
         auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -110,7 +110,7 @@ public class LoginActivity extends AppCompatActivity implements
                             updateUI(null);
                         }
 
-                        progressBar.setVisibility(View.GONE);
+                        progressBar.setVisibility(ProgressBar.INVISIBLE);
                     }
                 });
     }
