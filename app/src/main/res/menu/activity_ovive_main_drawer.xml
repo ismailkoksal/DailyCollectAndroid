@@ -7,19 +7,19 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
-            android:title="@string/menu_home" />
+            android:title="@string/menu_tours" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_driver"
-            android:title="@string/menu_gallery" />
+            android:icon="@drawable/ic_clients"
+            android:title="@string/menu_Clients" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_clients"
-            android:title="@string/menu_slideshow" />
+            android:icon="@drawable/ic_driver"
+            android:title="@string/menu_Drivers" />
         <item
             android:id="@+id/nav_tools"
             android:icon="@drawable/ic_logout"
-            android:title="@string/menu_tools" />
+            android:title="@string/menu_quit" />
     </group>
 
 

@@ -6,7 +6,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import fr.aylan.dailycollect.R;
-import fr.aylan.dailycollect.driver.model.Client;
+import fr.aylan.dailycollect.model.Client;
 
 public class ClientDetailActivity extends AppCompatActivity {
 

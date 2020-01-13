@@ -1,23 +1,34 @@
-package fr.aylan.dailycollect.driver.model;
+package fr.aylan.dailycollect.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Rider implements Parcelable{
+public class OviveDriver implements Parcelable{
 
-    private int id;
+    private String id;
     // dd/mm/yyyy
     private String employement_date;
     private String name;
     private String mail;
     private String tel;
     private String city;
+    private String urlPhoto;
 
-    public int getId() {
+    public OviveDriver(String id, String employement_date, String name, String mail, String tel, String city, String urlPhoto) {
+        this.id = id;
+        this.employement_date = employement_date;
+        this.name = name;
+        this.mail = mail;
+        this.tel = tel;
+        this.city = city;
+        this.urlPhoto = urlPhoto;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -27,6 +38,14 @@ public class Rider implements Parcelable{
 
     public void setEmployement_date(String employement_date) {
         this.employement_date = employement_date;
+    }
+
+    public String getUrlPhoto() {
+        return urlPhoto;
+    }
+
+    public void setUrlPhoto(String urlPhoto) {
+        this.urlPhoto = urlPhoto;
     }
 
     public String getName() {
@@ -68,30 +87,32 @@ public class Rider implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
+        dest.writeString(id);
         dest.writeString(employement_date);
         dest.writeString(name);
         dest.writeString(tel);
         dest.writeString(mail);
         dest.writeString(city);
+        dest.writeString(urlPhoto);
     }
 
-    public Rider(Parcel in) {
-        id = in.readInt();
+    public OviveDriver(Parcel in) {
+        id = in.readString();
         employement_date = in.readString();
         name = in.readString();
         tel = in.readString();
         mail = in.readString();
         city = in.readString();
+        urlPhoto = in.readString();
     }
 
-    public static final Parcelable.Creator<Rider> CREATOR = new Parcelable.Creator<Rider>() {
-        public Rider createFromParcel(Parcel in) {
-            return new Rider(in);
+    public static final Parcelable.Creator<OviveDriver> CREATOR = new Parcelable.Creator<OviveDriver>() {
+        public OviveDriver createFromParcel(Parcel in) {
+            return new OviveDriver(in);
         }
 
-        public Rider[] newArray(int size) {
-            return new Rider[size];
+        public OviveDriver[] newArray(int size) {
+            return new OviveDriver[size];
         }
     };
 }

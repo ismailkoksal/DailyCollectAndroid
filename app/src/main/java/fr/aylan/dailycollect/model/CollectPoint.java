@@ -1,4 +1,4 @@
-package fr.aylan.dailycollect.driver.model;
+package fr.aylan.dailycollect.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;

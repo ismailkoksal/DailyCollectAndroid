@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import java.util.ArrayList;
 import fr.aylan.dailycollect.R;
-import fr.aylan.dailycollect.driver.model.Tour;
+import fr.aylan.dailycollect.model.Tour;
 
 
 public class TourAdapter  extends ArrayAdapter<Tour> {

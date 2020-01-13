@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 import fr.aylan.dailycollect.App;
 import fr.aylan.dailycollect.R;
-import fr.aylan.dailycollect.driver.model.Client;
+import fr.aylan.dailycollect.model.Client;
 import fr.aylan.dailycollect.ovive.ui.detailclient.ClientDetailActivity;
 
 
