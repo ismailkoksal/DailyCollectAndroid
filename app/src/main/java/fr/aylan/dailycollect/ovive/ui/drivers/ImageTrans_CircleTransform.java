@@ -14,8 +14,8 @@ public class ImageTrans_CircleTransform implements Transformation {
             return null;
         }
 
-        final int width = source.getWidth() + 1;
-        final int height = source.getHeight() + 1;
+        final int width = source.getWidth() + 0 ;
+        final int height = source.getHeight() + 0;
 
         Bitmap canvasBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         BitmapShader shader = new BitmapShader(source, TileMode.CLAMP, TileMode.CLAMP);
@@ -32,7 +32,7 @@ public class ImageTrans_CircleTransform implements Transformation {
         paint.setShader(null);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(1);
-        canvas.drawCircle(width / 2, height / 2, radius - 1 / 2, paint);
+        //canvas.drawCircle(width / 2, height / 2, radius - 0 / 2, paint);
         //--------------------------------------
 
         if (canvasBitmap != source) {

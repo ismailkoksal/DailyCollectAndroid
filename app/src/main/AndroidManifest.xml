@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".auth.LoginActivity"></activity>
+        <activity android:name=".ovive.ui.drivers.DriverDetails"></activity>
         <activity android:name=".ovive.ui.detailclient.ClientDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

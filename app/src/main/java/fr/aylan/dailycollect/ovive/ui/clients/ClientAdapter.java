@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import java.util.ArrayList;
 
 import fr.aylan.dailycollect.R;
-import fr.aylan.dailycollect.driver.model.Client;
+import fr.aylan.dailycollect.model.Client;
 
 
 public class ClientAdapter extends ArrayAdapter<Client> {
@@ -34,11 +34,11 @@ public class ClientAdapter extends ArrayAdapter<Client> {
         Client client = getItem(position);
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(_context).inflate(R.layout.ovive_list_item_rider, parent, false);
+            convertView = LayoutInflater.from(_context).inflate(R.layout.ovive_list_item_client, parent, false);
         }
 
 
-        ((TextView)convertView.findViewById(R.id.tvRiderName)).setText(client.getName());
+        ((TextView)convertView.findViewById(R.id.tvClientName)).setText(client.getName());
 
 
         return convertView;
