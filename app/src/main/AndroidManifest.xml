@@ -16,19 +16,29 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ovive.ui.drivers.DriverDetails"></activity>
-        <activity android:name=".ovive.ui.clients.AddClientActivity" />
-        <activity android:name=".ovive.ui.drivers.AddDriver" />
-        <activity android:name=".auth.LoginActivity" />
+
+        <!-- AUTH -->
+        <activity android:name=".auth.SignInActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".auth.CreateUserActivity" />
+
+        <!-- CUSTOMER -->
+        <activity
+            android:name=".customer.CustomerMainActivity"
+            android:label="@string/title_activity_customer_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name=".ovive.ui.drivers.DriverDetails" />
         <activity android:name=".ovive.ui.detailclient.ClientDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ovive.OviveMAinActivity" />
         </activity>
-        <activity
-            android:name=".customer.CustomerMainActivity"
-            android:label="@string/title_activity_customer_main"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ovive.OviveMAinActivity"
             android:label="@string/title_activity_ovive_main"
@@ -65,13 +75,7 @@
             android:name=".driver.TourList"
             android:label="@string/title_activity_liste_tournee"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
