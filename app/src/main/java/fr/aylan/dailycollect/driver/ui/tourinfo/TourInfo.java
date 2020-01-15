@@ -117,7 +117,7 @@ public class TourInfo extends AppCompatActivity {
 
     public void getRiders()
     {
-        ((App) (getApplication()) ).db.collection("riders")
+        ((App) (getApplication()) ).db.collection("drivers")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value,

@@ -45,9 +45,7 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
 
-
-        ((App) (getParentFragment().getActivity().getApplication()) ).initialize();
-
+        
         db = FirebaseFirestore.getInstance();
         root = inflater.inflate(R.layout.rider_fragment_home, container, false);
         tourAdapter = new TourAdapter(getContext(), listTours);
