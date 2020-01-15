@@ -8,20 +8,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import fr.aylan.dailycollect.App;
 import fr.aylan.dailycollect.R;
-import fr.aylan.dailycollect.driver.model.Tour;
+import fr.aylan.dailycollect.model.Tour;
+import fr.aylan.dailycollect.driver.ui.addtour.AddTour;
 import fr.aylan.dailycollect.driver.ui.detailtour.TourDetailActivity;
 
 
@@ -50,6 +56,15 @@ public class HomeFragment extends Fragment {
 
 
         listenToMultiple();
+
+        FloatingActionButton fab = root.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), AddTour.class);
+                startActivity(intent);
+            }
+        });
 
 
         String[] array = new String[]{getString(R.string.modify),getString(R.string.delete), getString(R.string.start_tour)};

@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import fr.aylan.dailycollect.App;
 import fr.aylan.dailycollect.R;
-import fr.aylan.dailycollect.driver.model.CollectPoint;
+import fr.aylan.dailycollect.model.CollectPoint;
 import fr.aylan.dailycollect.driver.ui.tourinfo.TourInfo;
 
 public class AddTour extends AppCompatActivity {

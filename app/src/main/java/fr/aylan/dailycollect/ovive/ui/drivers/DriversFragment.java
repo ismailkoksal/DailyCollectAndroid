@@ -1,5 +1,6 @@
-package fr.aylan.dailycollect.ovive.ui.clients;
+package fr.aylan.dailycollect.ovive.ui.drivers;
 
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,11 +12,9 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -25,27 +24,25 @@ import java.util.ArrayList;
 import fr.aylan.dailycollect.App;
 import fr.aylan.dailycollect.R;
 import fr.aylan.dailycollect.model.Client;
-import fr.aylan.dailycollect.ovive.ui.detailclient.ClientDetailActivity;
+import fr.aylan.dailycollect.model.OviveDriver;
 
 
-public class ClientFragment extends Fragment {
+public class DriversFragment extends Fragment {
 
-    private ArrayList listClients = new ArrayList<Client>();
+    private ArrayList listDrivers = new ArrayList<Client>();
     ListView list ;
-    private ClientAdapter clientAdapter;
+    private DriverAdapter driverAdapter;
     AlertDialog.Builder builder ;
-    public static FirebaseFirestore db ;
     View root;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        root = inflater.inflate(R.layout.ovive_fragment_gallery, container, false);
+        root = inflater.inflate(R.layout.ovive_fragment_driver_list, container, false);
 
-
-        clientAdapter = new ClientAdapter(getContext(), listClients);
-        list = root.findViewById(R.id.listViewClients);
-        list.setAdapter(clientAdapter);
+        driverAdapter = new DriverAdapter(getContext(), listDrivers);
+        list = root.findViewById(R.id.listViewDrivers);
+        list.setAdapter(driverAdapter);
 
 
         listenToMultiple();
@@ -63,6 +60,7 @@ public class ClientFragment extends Fragment {
         });
 
 
+
         return root;
     }
 
@@ -74,7 +72,7 @@ public class ClientFragment extends Fragment {
             @Override
             public void run() {
 
-                ((App) (getParentFragment().getActivity().getApplication()) ).db.collection("clients")
+                ((App) (getParentFragment().getActivity().getApplication()) ).db.collection("drivers")
                         .addSnapshotListener(new EventListener<QuerySnapshot>() {
                             @Override
                             public void onEvent(@Nullable QuerySnapshot value,
@@ -82,34 +80,25 @@ public class ClientFragment extends Fragment {
                                 if (e != null) {
                                     return;
                                 }
-                                listClients.clear();
-                                clientAdapter.clear();
+                                listDrivers.clear();
+                                driverAdapter.clear();
 
                                 for (QueryDocumentSnapshot doc : value) {
                                     String id = doc.getId();
 
-                                    String logo = doc.getString("logo");
+                                    String employement_date = doc.getString("employement_date");
+                                    String name = doc.getString("name");
                                     String mail = doc.getString("mail");
                                     String tel = doc.getString("tel");
-                                    String director = doc.getString("director");
-                                    String id_collect_point =  doc.getString("id_collect_point");
-                                    String name = doc.getString("name");
-                                    String adresse = doc.getString("adresse");
-                                    String subscription_date = doc.getString("subscription_date");
-                                    String signature_date = doc.getString("signature_date");
-                                    String contract_end_date = doc.getString("contract_end_date");
-                                    String collect_day = doc.getString("collect_day");
+                                    String city = doc.getString("city");
+                                    String urlPhoto = doc.getString("urlPhoto");
 
 
+                                    OviveDriver driver = new OviveDriver(id, employement_date, name, mail, tel, city, urlPhoto);
 
-
-                                    Client client = new Client(id, logo, mail, tel, director, id_collect_point, name
-                                    , adresse, subscription_date, signature_date, contract_end_date, collect_day);
-                                    //tour.setList_collectPoints((List<String>) doc.get("list_collectPoints"));
-
-                                    listClients.add(client);
+                                    listDrivers.add(driver);
                                 }
-                                clientAdapter.notifyDataSetChanged();
+                                driverAdapter.notifyDataSetChanged();
 
                             }
                         });
@@ -120,6 +109,7 @@ public class ClientFragment extends Fragment {
 
     }
 
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -127,9 +117,9 @@ public class ClientFragment extends Fragment {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getContext(), ClientDetailActivity.class);
-                Client client = (Client) listClients.get(position);
-                intent.putExtra(getString(R.string.client),client);
+                Intent intent = new Intent(getContext(), DriverDetails.class);
+                OviveDriver driver = (OviveDriver) listDrivers.get(position);
+                intent.putExtra(getString(R.string.driver),driver);
                 startActivity(intent);
             }
         });

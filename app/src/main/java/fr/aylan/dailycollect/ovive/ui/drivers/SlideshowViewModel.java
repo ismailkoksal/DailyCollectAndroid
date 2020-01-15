@@ -1,4 +1,4 @@
-package fr.aylan.dailycollect.ovive.ui.slideshow;
+package fr.aylan.dailycollect.ovive.ui.drivers;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

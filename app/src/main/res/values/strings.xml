@@ -54,4 +54,9 @@
     <string name="email">Email</string>
     <string name="password">Mot de passe</string>
     <string name="sign_in">Connexion</string>
+    <string name="menu_tours">Les Tournées</string>
+    <string name="menu_Drivers">Les Chauffeurs</string>
+    <string name="menu_Clients">Les Clients</string>
+    <string name="driver">Chauffeur</string>
+    <string name="employement_date">Date d\'embauche</string>
 </resources>

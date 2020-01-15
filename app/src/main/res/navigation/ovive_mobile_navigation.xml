@@ -8,26 +8,26 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="fr.aylan.dailycollect.driver.ui.plannification.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="@string/menu_tours"
         tools:layout="@layout/rider_fragment_home" />
 
 
     <fragment
         android:id="@+id/nav_gallery"
         android:name="fr.aylan.dailycollect.ovive.ui.clients.ClientFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_Clients"
         tools:layout="@layout/ovive_fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="fr.aylan.dailycollect.ovive.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/ovive_fragment_slideshow" />
+        android:name="fr.aylan.dailycollect.ovive.ui.drivers.DriversFragment"
+        android:label="@string/menu_Drivers"
+        tools:layout="@layout/ovive_fragment_driver_list" />
 
     <fragment
         android:id="@+id/nav_tools"
         android:name="fr.aylan.dailycollect.ovive.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
+        android:label="@string/menu_quit"
         tools:layout="@layout/ovive_fragment_tools" />
 
 

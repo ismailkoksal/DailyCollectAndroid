@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import java.util.ArrayList;
 
 import fr.aylan.dailycollect.R;
-import fr.aylan.dailycollect.driver.model.CollectPoint;
+import fr.aylan.dailycollect.model.CollectPoint;
 
 
 public class CollectPointAdapter extends ArrayAdapter<CollectPoint> {

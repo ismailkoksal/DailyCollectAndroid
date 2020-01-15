@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
 import fr.aylan.dailycollect.R;
-import fr.aylan.dailycollect.driver.model.Tour;
+import fr.aylan.dailycollect.model.Tour;
 
 
 public class TourDetailActivity extends AppCompatActivity   {

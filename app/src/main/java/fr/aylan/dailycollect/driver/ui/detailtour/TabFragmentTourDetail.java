@@ -17,8 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 import fr.aylan.dailycollect.App;
 import fr.aylan.dailycollect.R;
-import fr.aylan.dailycollect.driver.model.CollectPoint;
-import fr.aylan.dailycollect.driver.model.Tour;
+import fr.aylan.dailycollect.model.CollectPoint;
+import fr.aylan.dailycollect.model.Tour;
 import fr.aylan.dailycollect.driver.ui.listcollectpoints.ListCollectPointsView;
 
 
