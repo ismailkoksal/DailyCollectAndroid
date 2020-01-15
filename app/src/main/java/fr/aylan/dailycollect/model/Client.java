@@ -18,6 +18,7 @@ public class Client   implements Parcelable {
     String contract_end_date;
     String collect_day;
 
+    public Client() {}
 
     public Client(String id, String logo, String mail, String tel, String director, String id_collect_point, String name, String adresse,
                   String subscription_date, String signature_date, String contract_end_date, String collect_day) {

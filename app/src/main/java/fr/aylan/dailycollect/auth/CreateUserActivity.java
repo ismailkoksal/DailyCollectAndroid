@@ -1,6 +1,7 @@
 package fr.aylan.dailycollect.auth;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -19,12 +20,18 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import fr.aylan.dailycollect.R;
+import fr.aylan.dailycollect.model.Client;
+import fr.aylan.dailycollect.model.UserType;
 
 public class CreateUserActivity extends AppCompatActivity {
 
@@ -43,6 +50,8 @@ public class CreateUserActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
     private FirebaseFirestore db;
+
+    private FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,8 +101,8 @@ public class CreateUserActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
-                            FirebaseUser user = auth.getCurrentUser();
-                            insertUserData(user);
+                            user = auth.getCurrentUser();
+                            getClients();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
@@ -106,7 +115,16 @@ public class CreateUserActivity extends AppCompatActivity {
                 });
     }
 
-    private void insertUserData(FirebaseUser user) {
+    private void getClients() {
+        db.collection("clients").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                insertClientData(queryDocumentSnapshots.size());
+            }
+        });
+    }
+
+    private void insertClientData(final int clientsSize) {
         Map<String, Object> data = new HashMap<>();
         data.put("nom", nameField.getText().toString());
         data.put("raisonSociale", companyNameField.getText().toString());
@@ -116,12 +134,13 @@ public class CreateUserActivity extends AppCompatActivity {
         data.put("cp", postalCodeField.getText().toString());
         data.put("ville", cityField.getText().toString());
 
-        db.collection("users").document(user.getUid())
+        db.collection("clients").document(Integer.toString(clientsSize))
                 .set(data)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.d(TAG, "DocumentSnapshot successfully written!");
+                        insertUserData(Integer.toString(clientsSize));
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -130,6 +149,15 @@ public class CreateUserActivity extends AppCompatActivity {
                         Log.w(TAG, "Error writing document", e);
                     }
                 });
+    }
+
+    private void insertUserData(String clientId) {
+        Map<String, Object> data = new HashMap<>();
+        data.put("id", clientId);
+        data.put("type", UserType.CLIENT);
+
+        db.collection("users").document(user.getUid())
+                .set(data);
     }
 
     @Override
