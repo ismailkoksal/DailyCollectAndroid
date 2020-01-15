@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".auth.CreateUserActivity">
+
+    <ProgressBar
+        android:id="@+id/progressBarCreateUser"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/cuName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Nom prénom"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/cuCompanyName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Raison sociale"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/cuMail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/cuPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Téléphone"
+                android:inputType="phone" />
+
+            <EditText
+                android:id="@+id/cuStreetName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Rue"
+                android:inputType="textPostalAddress" />
+
+            <EditText
+                android:id="@+id/cuPostalCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Code postal"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/cuCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Ville"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/cuPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Mot de passe"
+                android:inputType="textPassword" />
+
+            <EditText
+                android:id="@+id/cuConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Confirmer mot de passe"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/createUserButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="S'inscrire" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

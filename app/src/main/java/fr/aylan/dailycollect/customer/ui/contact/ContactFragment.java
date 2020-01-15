@@ -65,8 +65,8 @@ public class ContactFragment extends Fragment {
     }
 
     private void composeEmail(String email, String subject, String body) {
-        Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("*/*");
         intent.putExtra(Intent.EXTRA_EMAIL, email);
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
         intent.putExtra(Intent.EXTRA_TEXT, body);

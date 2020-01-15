@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".auth.LoginActivity">
+    tools:context=".auth.SignInActivity">
 
     <EditText
         android:id="@+id/fieldEmail"
@@ -23,13 +23,25 @@
         android:inputType="textPassword"
         android:text="@string/password" />
 
-    <Button
-        android:id="@+id/emailSignInButton"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/fieldPassword"
-        android:layout_centerHorizontal="true"
-        android:text="@string/sign_in" />
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonInscription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="S'inscrire" />
+
+        <Button
+            android:id="@+id/emailSignInButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_in" />
+    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -37,4 +49,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
+
 </RelativeLayout>

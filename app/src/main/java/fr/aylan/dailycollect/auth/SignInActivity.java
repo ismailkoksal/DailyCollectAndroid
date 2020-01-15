@@ -3,6 +3,7 @@ package fr.aylan.dailycollect.auth;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -18,11 +19,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import fr.aylan.dailycollect.R;
+import fr.aylan.dailycollect.customer.CustomerMainActivity;
 
-public class LoginActivity extends AppCompatActivity implements
+public class SignInActivity extends AppCompatActivity implements
         View.OnClickListener {
 
-    private static final String TAG = "Login";
+    private static final String TAG = "SignIn";
 
     private EditText emailField;
     private EditText passwordField;
@@ -39,9 +41,11 @@ public class LoginActivity extends AppCompatActivity implements
         emailField = findViewById(R.id.fieldEmail);
         passwordField = findViewById(R.id.fieldPassword);
         progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(ProgressBar.INVISIBLE);
 
         // Buttons
         findViewById(R.id.emailSignInButton).setOnClickListener(this);
+        findViewById(R.id.buttonInscription).setOnClickListener(this);
 
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance();
@@ -53,36 +57,6 @@ public class LoginActivity extends AppCompatActivity implements
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = auth.getCurrentUser();
         updateUI(currentUser);
-    }
-
-    private void createAccount(String email, String password) {
-        Log.d(TAG, "createAccount:" + email);
-        if (!validateForm()) {
-            return;
-        }
-
-        progressBar.setVisibility(ProgressBar.VISIBLE);
-
-        auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "createUserWithEmail:success");
-                            FirebaseUser user = auth.getCurrentUser();
-                            updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(null);
-                        }
-
-                        progressBar.setVisibility(ProgressBar.INVISIBLE);
-                    }
-                });
     }
 
     private void signIn(String email, String password) {
@@ -101,11 +75,14 @@ public class LoginActivity extends AppCompatActivity implements
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = auth.getCurrentUser();
+                            StartCustomerMainActivity();
+                            Toast.makeText(SignInActivity.this, "Authentication success " + user.getUid(),
+                                    Toast.LENGTH_SHORT).show();
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                            Toast.makeText(SignInActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
@@ -146,12 +123,21 @@ public class LoginActivity extends AppCompatActivity implements
         // TODO : Update UI
     }
 
+    private void StartCustomerMainActivity() {
+        Intent intent = new Intent(this, CustomerMainActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onClick(View v) {
-        // TODO : On create account and sign in button
-        int i = v.getId();
-        if (i == R.id.emailSignInButton) {
-            signIn(emailField.getText().toString(), passwordField.getText().toString());
+        switch (v.getId()) {
+            case R.id.emailSignInButton:
+                signIn(emailField.getText().toString(), passwordField.getText().toString());
+                break;
+            case R.id.buttonInscription:
+                Intent intent = new Intent(this, CreateUserActivity.class);
+                startActivity(intent);
+                break;
         }
     }
 }
