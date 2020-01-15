@@ -59,4 +59,9 @@
     <string name="menu_Clients">Les Clients</string>
     <string name="driver">Chauffeur</string>
     <string name="employement_date">Date d\'embauche</string>
+    <string name="name_required">Name *</string>
+    <string name="email_required">Email *</string>
+    <string name="tel_required">Tél *</string>
+    <string name="employement_date_and_format">Date d’ambauche : jj/mm/aaaa</string>
+    <string name="create">Créer</string>
 </resources>
