@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -78,32 +79,34 @@ public class SignInActivity extends AppCompatActivity implements
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        progressBar.setVisibility(ProgressBar.INVISIBLE);
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = auth.getCurrentUser();
                             startUserActivity(user);
                             // StartRiderMainActivity();
-                            Toast.makeText(SignInActivity.this, "Authentication success " + user.getUid(),
-                                    Toast.LENGTH_SHORT).show();
+                            // Toast.makeText(SignInActivity.this, "Authentication success " + user.getUid(),
+                                    // Toast.LENGTH_SHORT).show();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
                             Toast.makeText(SignInActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
-
-                        progressBar.setVisibility(ProgressBar.INVISIBLE);
                     }
                 });
     }
 
     private void startUserActivity(FirebaseUser user) {
+        progressBar.setVisibility(ProgressBar.VISIBLE);
+
         db.collection("users").document(user.getUid())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        progressBar.setVisibility(ProgressBar.INVISIBLE);
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
                             if (document.exists()) {

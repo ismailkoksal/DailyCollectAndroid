@@ -18,14 +18,18 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <!-- AUTH -->
-        <activity android:name=".auth.SignInActivity">
+        <activity
+            android:name=".auth.SignInActivity"
+            android:label="Connexion">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".auth.CreateUserActivity" />
+        <activity
+            android:name=".auth.CreateUserActivity"
+            android:label="Inscription"/>
 
         <!-- CUSTOMER -->
         <activity

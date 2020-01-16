@@ -26,16 +26,6 @@
             android:layout_marginRight="32dp"
             android:layout_marginTop="32dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Inscription"
-                android:textAllCaps="true"
-                android:textAlignment="center"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:layout_marginBottom="16dp"/>
-
             <EditText
                 android:id="@+id/cuName"
                 android:layout_width="match_parent"
