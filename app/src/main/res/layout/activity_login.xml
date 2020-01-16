@@ -6,13 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".auth.SignInActivity">
 
+    <ImageView
+        android:id="@+id/ovive_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/logo_ovive_mer_fond_transparent"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="32dp"/>
+
     <EditText
         android:id="@+id/fieldEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_below="@id/ovive_logo"/>
 
     <EditText
         android:id="@+id/fieldPassword"
@@ -21,7 +34,9 @@
         android:layout_below="@id/fieldEmail"
         android:ems="10"
         android:hint="@string/password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:layout_alignStart="@+id/fieldEmail"
+        android:layout_alignEnd="@+id/fieldEmail"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,6 +63,7 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>
