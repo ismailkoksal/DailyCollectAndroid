@@ -1,14 +1,15 @@
 package fr.aylan.dailycollect.driver.ui.tourinfo;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.Spinner;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -19,8 +20,8 @@ import java.util.ArrayList;
 
 import fr.aylan.dailycollect.App;
 import fr.aylan.dailycollect.R;
-import fr.aylan.dailycollect.model.CollectPoint;
 import fr.aylan.dailycollect.driver.ui.validatepointscollectlist.ValidateCollectPointsList;
+import fr.aylan.dailycollect.model.CollectPoint;
 
 public class TourInfo extends AppCompatActivity {
 
@@ -46,6 +47,9 @@ public class TourInfo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rider_activity_tour_info);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         getVehicles();
         getCities();
@@ -155,6 +159,15 @@ public class TourInfo extends AppCompatActivity {
 
                     }
                 });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home)
+        {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
