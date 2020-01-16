@@ -216,6 +216,16 @@
             app:layout_constraintTop_toTopOf="@+id/imageView11"
             tools:text="TextView" />
 
+        <View
+            android:id="@+id/divider5"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -231,7 +241,18 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
 
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/divider7"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pontsCollectholder" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

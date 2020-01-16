@@ -1,4 +1,4 @@
-package fr.aylan.dailycollect.driver.ui.plannification;
+package fr.aylan.dailycollect.ovive.ui.tours;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,14 +26,14 @@ import java.util.List;
 
 import fr.aylan.dailycollect.App;
 import fr.aylan.dailycollect.R;
-import fr.aylan.dailycollect.driver.TourList;
 import fr.aylan.dailycollect.driver.ui.addtour.AddTour;
 import fr.aylan.dailycollect.driver.ui.detailtour.TourDetailActivity;
+import fr.aylan.dailycollect.driver.ui.plannification.TourAdapter;
 import fr.aylan.dailycollect.model.Tour;
+import fr.aylan.dailycollect.ovive.OviveMAinActivity;
 
 
-
-public class HomeFragment extends Fragment {
+public class ToursFragment extends Fragment {
 
     private ArrayList listTours = new ArrayList<Tour>();
     ListView list ;
@@ -48,20 +48,19 @@ public class HomeFragment extends Fragment {
 
         
         db = FirebaseFirestore.getInstance();
-        root = inflater.inflate(R.layout.rider_fragment_home, container, false);
+        root = inflater.inflate(R.layout.ovive_fragment_tours, container, false);
         tourAdapter = new TourAdapter(getContext(), listTours);
-        list = root.findViewById(R.id.list_view_tours);
+        list = root.findViewById(R.id.ovive_list_view_tours);
         list.setAdapter(tourAdapter);
 
 
         listenToMultiple();
 
-        FloatingActionButton fab = root.findViewById(R.id.fab);
+        FloatingActionButton fab = root.findViewById(R.id.ovive_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((App) getActivity().getApplication()).setIntent(new Intent(getContext(), TourList.class));
-                ((App) getActivity().getApplication()).intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                ((App) getActivity().getApplication()).setIntent(new Intent(getContext(), OviveMAinActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 Intent intent = new Intent(getContext(), AddTour.class);
                 startActivity(intent);
             }

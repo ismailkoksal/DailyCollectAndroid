@@ -1,6 +1,5 @@
 package fr.aylan.dailycollect.driver.ui.validatepointscollectlist;
 
-import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,7 +25,6 @@ import java.util.ArrayList;
 
 import fr.aylan.dailycollect.App;
 import fr.aylan.dailycollect.R;
-import fr.aylan.dailycollect.driver.TourList;
 import fr.aylan.dailycollect.driver.ui.listcollectpoints.ListCollectPointsView;
 import fr.aylan.dailycollect.model.CollectPoint;
 import fr.aylan.dailycollect.model.Tour;
@@ -111,9 +109,7 @@ public class ValidateCollectPointsList extends AppCompatActivity {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 Toast.makeText(ValidateCollectPointsList.this, getString(R.string.added_successfuly),Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(ValidateCollectPointsList.this, TourList.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                startActivity(intent);
+                                startActivity(((App) getApplication()).intent);
                                 Log.d(TAG, "DocumentSnapshot successfully written!");
                             }
                         })

@@ -1,6 +1,8 @@
 package fr.aylan.dailycollect.driver.ui.detailtour;
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -20,6 +22,10 @@ public class TourDetailActivity extends AppCompatActivity   {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rider_activity_detail_tour);
 
+        actionBarSettings();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
         viewPager =  findViewById(R.id.viewPager);
         tabLayout =  findViewById(R.id.tabLayout);
 
@@ -35,6 +41,21 @@ public class TourDetailActivity extends AppCompatActivity   {
         tabLayout.setupWithViewPager(viewPager);
         getSupportActionBar().setElevation(0);
 
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home)
+        {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void actionBarSettings(){
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.white)));
+        getSupportActionBar().setElevation(0);
 
     }
 

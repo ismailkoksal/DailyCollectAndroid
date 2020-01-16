@@ -62,6 +62,8 @@ public class AddTour extends AppCompatActivity {
         });
         getCollectPoints();
 
+
+
     }
 
     private void getCollectPoints() {
@@ -89,6 +91,7 @@ public class AddTour extends AppCompatActivity {
                         for (int i=0; i< collectPoints.size(); i++){
                             pointsNames[i] = collectPoints.get(i).getName();
                         }
+                        addTourItem();
 
                     }
                 });

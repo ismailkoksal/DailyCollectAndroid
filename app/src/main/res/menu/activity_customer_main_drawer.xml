@@ -5,7 +5,7 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_tours"
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
         <item
@@ -13,11 +13,11 @@
             android:icon="@drawable/ic_menu_contact"
             android:title="Contacter Ovive" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_drivers"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_slideshow" />
         <item
-            android:id="@+id/nav_tools"
+            android:id="@+id/nav_signout"
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/menu_tools" />
     </group>

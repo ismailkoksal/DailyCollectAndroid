@@ -34,7 +34,7 @@
     <string name="city">Ville</string>
     <string name="vehicle">Vehicule</string>
     <string name="failed_to_add">L\'ajout de la tournée a echoué.</string>
-    <string name="added_successfuly">La Tournée a été ajouté avec succes</string>
+    <string name="added_successfuly">La Tournée a été ajoutée avec succes</string>
     <string name="title_activity_ovive_main">OviveMAinActivity</string>
 
     <string name="menu_home">Home</string>
@@ -54,9 +54,9 @@
     <string name="email">Email</string>
     <string name="password">Mot de passe</string>
     <string name="sign_in">Connexion</string>
-    <string name="menu_tours">Les Tournées</string>
-    <string name="menu_Drivers">Les Chauffeurs</string>
-    <string name="menu_Clients">Les Clients</string>
+    <string name="menu_tours">Tournées</string>
+    <string name="menu_Drivers">Chauffeurs</string>
+    <string name="menu_Clients">Clients</string>
     <string name="driver">Chauffeur</string>
     <string name="employement_date">Date d\'embauche</string>
     <string name="name_required">Name *</string>
@@ -65,4 +65,5 @@
     <string name="employement_date_and_format">Date d’ambauche : jj/mm/aaaa</string>
     <string name="create">Créer</string>
     <string name="add_driver">Ajouter un Chauffeur</string>
+    <string name="driver_menu_liste_tours">Tournées</string>
 </resources>
