@@ -35,7 +35,7 @@ public class TourAdapter  extends ArrayAdapter<Tour> {
         }
 
 
-        ((TextView)convertView.findViewById(R.id.tvTourName)).setText(tour.getId()+" ");
+        ((TextView)convertView.findViewById(R.id.tvTourName)).setText(getContext().getString(R.string.tour)+" "+(tour.getId()+1)+" ");
         ((TextView)convertView.findViewById(R.id.tvDate)).setText(tour.getDate());
         ((TextView)convertView.findViewById(R.id.tvCity)).setText(tour.getCity());
 

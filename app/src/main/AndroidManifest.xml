@@ -55,9 +55,6 @@
         <activity
             android:name=".driver.ui.addtour.AddTour"
             android:label="@string/add_tour">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".driver.TourList" />
         </activity>
 
         <uses-library
