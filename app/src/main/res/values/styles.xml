@@ -4,13 +4,14 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/white</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
         <item name="titleTextColor">@color/oviveLightBlue</item>
         <item name="subtitleTextColor">@color/oviveLightBlue</item>
         <item name="android:icon">@android:color/holo_red_dark</item>
         <item name="actionBarTheme">@style/AppTheme.AppBarOverlay</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
     <style name="DotsDarkTheme" parent="@style/Widget.AppCompat.ActionButton.Overflow" >
         <item name="android:tint">@color/oviveRed</item>

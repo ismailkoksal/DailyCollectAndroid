@@ -3,10 +3,12 @@ package fr.aylan.dailycollect.driver.ui.detailtour;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
+
 import com.google.android.material.tabs.TabLayout;
+
 import fr.aylan.dailycollect.R;
 import fr.aylan.dailycollect.model.Tour;
 
@@ -30,7 +32,6 @@ public class TourDetailActivity extends AppCompatActivity   {
         tabLayout =  findViewById(R.id.tabLayout);
 
         Tour tour = getIntent().getExtras().getParcelable(getString(R.string.tour));
-        Toast.makeText(this,String.valueOf(tour.getList_collectPoints().size()),Toast.LENGTH_LONG).show();
 
 
         adapter.addFragment(new TabFragmentTourDetail(tour), getString(R.string.detail));
