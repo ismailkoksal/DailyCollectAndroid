@@ -64,4 +64,5 @@
     <string name="tel_required">Tél *</string>
     <string name="employement_date_and_format">Date d’ambauche : jj/mm/aaaa</string>
     <string name="create">Créer</string>
+    <string name="add_driver">Ajouter un Chauffeur</string>
 </resources>

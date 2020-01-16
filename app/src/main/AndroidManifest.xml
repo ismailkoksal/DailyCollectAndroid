@@ -37,7 +37,8 @@
             android:label="@string/title_activity_customer_main"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name=".ovive.ui.drivers.DriverDetails" />
+        <activity android:name=".ovive.ui.drivers.DriverDetails" android:label="@string/driver" />
+        <activity android:name=".ovive.ui.drivers.AddDriver" android:label="@string/add_driver"/>
         <activity android:name=".ovive.ui.detailclient.ClientDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

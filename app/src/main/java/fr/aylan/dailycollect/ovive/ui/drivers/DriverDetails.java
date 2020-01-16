@@ -1,6 +1,8 @@
 package fr.aylan.dailycollect.ovive.ui.drivers;
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,8 +19,12 @@ public class DriverDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_driver);
+        actionBarSettings();
 
         OviveDriver driver = getIntent().getParcelableExtra(getString(R.string.driver));
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         ((TextView) findViewById(R.id.tvName)).setText(driver.getName());
         ((TextView) findViewById(R.id.tvCity)).setText(driver.getCity());
@@ -34,4 +40,22 @@ public class DriverDetails extends AppCompatActivity {
                 .transform(new ImageTrans_CircleTransform())
                 .into(photoProfile);
     }
+
+
+       public void actionBarSettings(){
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.white)));
+        getSupportActionBar().setElevation(0);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home)
+        {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }

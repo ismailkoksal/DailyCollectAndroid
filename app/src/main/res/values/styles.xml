@@ -7,8 +7,14 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="titleTextColor">@color/oviveLightBlue</item>
+        <item name="subtitleTextColor">@color/oviveLightBlue</item>
+        <item name="android:icon">@android:color/holo_red_dark</item>
+        <item name="actionBarTheme">@style/AppTheme.AppBarOverlay</item>
     </style>
-
+    <style name="DotsDarkTheme" parent="@style/Widget.AppCompat.ActionButton.Overflow" >
+        <item name="android:tint">@color/oviveRed</item>
+    </style>
     <style name="AppTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.StatusBar.Title">
         <item name="android:textColor">@color/oviveLightBlue</item>
         <item name="android:tint">@color/oviveLightBlue</item>

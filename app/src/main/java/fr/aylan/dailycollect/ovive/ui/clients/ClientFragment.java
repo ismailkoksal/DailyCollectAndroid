@@ -40,7 +40,7 @@ public class ClientFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        root = inflater.inflate(R.layout.ovive_fragment_gallery, container, false);
+        root = inflater.inflate(R.layout.ovive_fragment_clients, container, false);
 
 
         clientAdapter = new ClientAdapter(getContext(), listClients);

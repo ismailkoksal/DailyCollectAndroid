@@ -1,27 +1,32 @@
 package fr.aylan.dailycollect.driver.ui.addtour;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TimePicker;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.ArrayList;
 import java.util.Calendar;
+
 import fr.aylan.dailycollect.App;
 import fr.aylan.dailycollect.R;
-import fr.aylan.dailycollect.model.CollectPoint;
 import fr.aylan.dailycollect.driver.ui.tourinfo.TourInfo;
+import fr.aylan.dailycollect.model.CollectPoint;
 
 public class AddTour extends AppCompatActivity {
 
@@ -44,6 +49,9 @@ public class AddTour extends AppCompatActivity {
 
         listItemsLayout = findViewById(R.id.listItemsLayout);
 
+        actionBarSettings();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         btnAddTourItem =findViewById(R.id.btnAddItemTour);
         btnAddTourItem.setOnClickListener(new View.OnClickListener() {
@@ -147,6 +155,20 @@ public class AddTour extends AppCompatActivity {
         intent.putParcelableArrayListExtra("selectedCPoints", selectedCPoints);
         startActivity(intent);
 
+    }
+
+    public void actionBarSettings(){
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.white)));
+        getSupportActionBar().setElevation(0);
+
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home)
+        {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
