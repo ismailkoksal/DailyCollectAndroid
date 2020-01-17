@@ -2,19 +2,24 @@ package fr.aylan.dailycollect.model;
 
 public class User {
     private String id;
-    private UserType type;
+    private String type;
 
     public User() {}
+
+    public User(String id, String type) {
+        this.id = id;
+        this.type = type;
+    }
 
     public void setId(String id) {
         this.id = id;
     }
 
-    public void setType(UserType type) {
+    public void setType(String type) {
         this.type = type;
     }
 
-    public UserType getType() {
+    public String  getType() {
         return type;
     }
 

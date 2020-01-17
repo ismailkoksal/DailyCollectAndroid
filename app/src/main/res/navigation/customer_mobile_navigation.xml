@@ -3,41 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_collects">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="fr.aylan.dailycollect.customer.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/customer_fragment_home" />
+        android:id="@+id/nav_collects"
+        android:name="fr.aylan.dailycollect.customer.ui.collects.CollectsFragment"
+        android:label="Mes collectes"
+        tools:layout="@layout/customer_fragment_collects" />
 
     <fragment
         android:id="@+id/nav_contact"
         android:name="fr.aylan.dailycollect.customer.ui.contact.ContactFragment"
         android:label="Contact"
         tools:layout="@layout/customer_fragment_contact" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="fr.aylan.dailycollect.customer.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/customer_fragment_slideshow" />
-
-    <fragment
-        android:id="@+id/nav_tools"
-        android:name="fr.aylan.dailycollect.customer.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
-        tools:layout="@layout/customer_fragment_tools" />
-
-    <fragment
-        android:id="@+id/nav_share"
-        android:name="fr.aylan.dailycollect.customer.ui.share.ShareFragment"
-        android:label="@string/menu_share"
-        tools:layout="@layout/customer_fragment_share" />
-
-    <fragment
-        android:id="@+id/nav_send"
-        android:name="fr.aylan.dailycollect.customer.ui.send.SendFragment"
-        android:label="@string/menu_send"
-        tools:layout="@layout/customer_fragment_send" />
 </navigation>

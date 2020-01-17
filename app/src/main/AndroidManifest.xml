@@ -16,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <activity
+            android:name=".customer.ui.collects.AddCollectActivity"
+            android:label="Ajouter une collecte" />
         <!-- AUTH -->
         <activity
             android:name=".auth.SignInActivity"
@@ -29,14 +31,11 @@
         </activity>
         <activity
             android:name=".auth.CreateUserActivity"
-            android:label="Inscription"/>
-
-        <!-- CUSTOMER -->
+            android:label="Inscription" /> <!-- CUSTOMER -->
         <activity
             android:name=".customer.CustomerMainActivity"
             android:label="@string/title_activity_customer_main"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity android:name=".ovive.ui.drivers.DriverDetails" />
         <activity android:name=".ovive.ui.detailclient.ClientDetailActivity">
             <meta-data

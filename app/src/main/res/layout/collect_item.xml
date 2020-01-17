@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#08000000"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/collect_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="17/1/2020"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/collect_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/collect_date"
+        android:text="12:0"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

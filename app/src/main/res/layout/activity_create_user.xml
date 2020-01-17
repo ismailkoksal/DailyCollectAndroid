@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Nom prénom"
+                android:hint="Nom prénom*"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -39,7 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Raison sociale"
+                android:hint="Raison sociale*"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -47,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Email"
+                android:hint="Email*"
                 android:inputType="textEmailAddress" />
 
             <EditText
@@ -55,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Téléphone"
+                android:hint="Téléphone*"
                 android:inputType="phone" />
 
             <EditText
@@ -63,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Rue"
+                android:hint="Rue*"
                 android:inputType="textPostalAddress" />
 
             <EditText
@@ -71,7 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Code postal"
+                android:hint="Code postal*"
                 android:inputType="number" />
 
             <EditText
@@ -79,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Ville"
+                android:hint="Ville*"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -87,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Mot de passe"
+                android:hint="Mot de passe*"
                 android:inputType="textPassword" />
 
             <EditText
@@ -95,7 +95,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Confirmer mot de passe"
+                android:hint="Confirmer mot de passe*"
                 android:inputType="textPassword" />
 
             <Button

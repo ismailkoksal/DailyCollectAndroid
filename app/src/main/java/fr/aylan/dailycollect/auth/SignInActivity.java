@@ -39,6 +39,9 @@ public class SignInActivity extends AppCompatActivity implements
     private FirebaseAuth auth;
     private FirebaseFirestore db;
 
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +50,7 @@ public class SignInActivity extends AppCompatActivity implements
         // Views
         emailField = findViewById(R.id.fieldEmail);
         passwordField = findViewById(R.id.fieldPassword);
-        progressBar = findViewById(R.id.progressBar);
-        progressBar.setVisibility(ProgressBar.INVISIBLE);
+        progressBar = findViewById(R.id.progress_horizontal);
 
         // Buttons
         findViewById(R.id.emailSignInButton).setOnClickListener(this);
@@ -58,13 +60,20 @@ public class SignInActivity extends AppCompatActivity implements
         auth = FirebaseAuth.getInstance();
         // Initialize Firestore
         db = FirebaseFirestore.getInstance();
+
+        pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+        editor = pref.edit();
     }
 
     @Override
-    protected void onStart() {
+    public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        // FirebaseUser currentUser = auth.getCurrentUser();
+        FirebaseUser firebaseUser = auth.getCurrentUser();
+        if (firebaseUser != null) {
+            User user = new User(pref.getString("userId", null), pref.getString("userType", null));
+            startUserActivity(user);
+        }
     }
 
     private void signIn(String email, String password) {
@@ -79,12 +88,11 @@ public class SignInActivity extends AppCompatActivity implements
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        progressBar.setVisibility(ProgressBar.INVISIBLE);
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = auth.getCurrentUser();
-                            startUserActivity(user);
+                            getUser(user);
                             // StartRiderMainActivity();
                             // Toast.makeText(SignInActivity.this, "Authentication success " + user.getUid(),
                                     // Toast.LENGTH_SHORT).show();
@@ -94,11 +102,12 @@ public class SignInActivity extends AppCompatActivity implements
                             Toast.makeText(SignInActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
+                        progressBar.setVisibility(ProgressBar.INVISIBLE);
                     }
                 });
     }
 
-    private void startUserActivity(FirebaseUser user) {
+    private void getUser(FirebaseUser user) {
         progressBar.setVisibility(ProgressBar.VISIBLE);
 
         db.collection("users").document(user.getUid())
@@ -106,29 +115,20 @@ public class SignInActivity extends AppCompatActivity implements
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        progressBar.setVisibility(ProgressBar.INVISIBLE);
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
                             if (document.exists()) {
                                 Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                                 User user = document.toObject(User.class);
-                                switch (user.getType()) {
-                                    case CLIENT:
-                                        StartCustomerMainActivity();
-                                        break;
-                                    case CHAUFFEUR:
-                                        StartRiderMainActivity();
-                                        break;
-                                    case OVIVE:
-                                        StartOviveMainActivity();
-                                        break;
-                                }
+                                saveUser(user);
+                                startUserActivity(user);
                             } else {
                                 Log.d(TAG, "No such document");
                             }
                         } else {
                             Log.d(TAG, "get failed with ", task.getException());
                         }
+                        progressBar.setVisibility(ProgressBar.INVISIBLE);
                     }
                 });
     }
@@ -138,7 +138,7 @@ public class SignInActivity extends AppCompatActivity implements
 
         String email = emailField.getText().toString();
         if (TextUtils.isEmpty(email)) {
-            emailField.setError("Required.");
+            emailField.setError("Required");
             valid = false;
         } else {
             emailField.setError(null);
@@ -146,7 +146,7 @@ public class SignInActivity extends AppCompatActivity implements
 
         String password = passwordField.getText().toString();
         if (TextUtils.isEmpty(password)) {
-            passwordField.setError("Required.");
+            passwordField.setError("Required");
             valid = false;
         } else {
             passwordField.setError(null);
@@ -155,22 +155,46 @@ public class SignInActivity extends AppCompatActivity implements
         return valid;
     }
 
-    private void StartCustomerMainActivity() {
+    private void StartCustomerMainActivity(User user) {
         Intent intent = new Intent(this, CustomerMainActivity.class);
+        intent.putExtra("user", user.getId());
         startActivity(intent);
         finish();
     }
 
-    private void StartOviveMainActivity() {
+    private void StartOviveMainActivity(User user) {
         Intent intent = new Intent(this, OviveMAinActivity.class);
+        intent.putExtra("user", user.getId());
         startActivity(intent);
         finish();
     }
 
-    private void StartRiderMainActivity() {
+    private void StartRiderMainActivity(User user) {
         Intent intent = new Intent(this, TourList.class);
+        intent.putExtra("user", user.getId());
         startActivity(intent);
         finish();
+    }
+
+    private void startUserActivity(User user) {
+        switch (user.getType()) {
+            case "CLIENT":
+                StartCustomerMainActivity(user);
+                break;
+            case "CHAUFFEUR":
+                StartRiderMainActivity(user);
+                break;
+            case "OVIVE":
+                StartOviveMainActivity(user);
+                break;
+        }
+    }
+
+    private void saveUser(User user) {
+        editor.putString("userId", user.getId());
+        editor.putString("userType", user.getType());
+
+        editor.commit();
     }
 
     @Override

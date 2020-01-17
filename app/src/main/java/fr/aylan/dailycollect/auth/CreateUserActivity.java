@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -91,6 +92,9 @@ public class CreateUserActivity extends AppCompatActivity {
 
     private void createAccount(String email, String password) {
         Log.d(TAG, "createAccount:" + email);
+        if (!validateForm()) {
+            return;
+        }
 
         progressBar.setVisibility(ProgressBar.VISIBLE);
 
@@ -158,6 +162,91 @@ public class CreateUserActivity extends AppCompatActivity {
 
         db.collection("users").document(user.getUid())
                 .set(data);
+    }
+
+    private boolean validateForm() {
+        boolean valid = true;
+
+        String name = nameField.getText().toString();
+        if (TextUtils.isEmpty(name)) {
+            nameField.setError("Obligatoire");
+            valid = false;
+        } else {
+            nameField.setError(null);
+        }
+
+        String companyName = companyNameField.getText().toString();
+        if (TextUtils.isEmpty(companyName)) {
+            companyNameField.setError("Obligatoire");
+            valid = false;
+        } else {
+            companyNameField.setError(null);
+        }
+
+        String mail = mailField.getText().toString();
+        if (TextUtils.isEmpty(mail)) {
+            mailField.setError("Obligatoire");
+            valid = false;
+        } else {
+            mailField.setError(null);
+        }
+
+        String phone = phoneField.getText().toString();
+        if (TextUtils.isEmpty(phone)) {
+            phoneField.setError("Obligatoire");
+            valid = false;
+        } else {
+            phoneField.setError(null);
+        }
+
+        String streetName = streetNameField.getText().toString();
+        if (TextUtils.isEmpty(streetName)) {
+            streetNameField.setError("Obligatoire");
+            valid = false;
+        } else {
+            streetNameField.setError(null);
+        }
+
+        String postalCode = postalCodeField.getText().toString();
+        if (TextUtils.isEmpty(postalCode)) {
+            postalCodeField.setError("Obligatoire");
+            valid = false;
+        } else {
+            postalCodeField.setError(null);
+        }
+
+        String city = cityField.getText().toString();
+        if (TextUtils.isEmpty(city)) {
+            cityField.setError("Obligatoire");
+            valid = false;
+        } else {
+            cityField.setError(null);
+        }
+
+        String password = passwordField.getText().toString();
+        if (TextUtils.isEmpty(password)) {
+            passwordField.setError("Obligatoire");
+            valid = false;
+        } else {
+            passwordField.setError(null);
+        }
+
+        String confirmPassword = confirmPasswordField.getText().toString();
+        if (TextUtils.isEmpty(confirmPassword)) {
+            confirmPasswordField.setError("Obligatoire");
+            valid = false;
+        } else {
+            confirmPasswordField.setError(null);
+        }
+
+        if (!password.equals(confirmPassword)) {
+            nameField.setError("Les mots de passes ne correspondent pas");
+            valid = false;
+        } else {
+            nameField.setError(null);
+        }
+
+        return valid;
     }
 
     @Override
