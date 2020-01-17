@@ -1,6 +1,7 @@
 package fr.aylan.dailycollect.driver.ui.signout;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,9 +20,14 @@ public class SlideshowFragment extends Fragment {
 
     FirebaseAuth auth;
 
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editor;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
+        pref = getActivity().getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+        editor = pref.edit();
         auth = FirebaseAuth.getInstance();
         signOut();
 
@@ -35,6 +41,8 @@ public class SlideshowFragment extends Fragment {
 
     public void signOut(){
         auth.signOut();
+        editor.clear();
+        editor.commit();
         Intent intent = new Intent(getContext(), SignInActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         getParentFragment().getActivity().finish();
