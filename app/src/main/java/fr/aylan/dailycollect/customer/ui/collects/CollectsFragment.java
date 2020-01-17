@@ -2,6 +2,7 @@ package fr.aylan.dailycollect.customer.ui.collects;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -42,13 +44,16 @@ public class CollectsFragment extends Fragment {
 
     private final String TAG = "CollectsFragment";
 
-    private FirebaseAuth auth;
     private FirebaseFirestore db;
-    private FirebaseUser currentUser;
-    private User user;
+    private ProgressBar progressBar;
+
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editor;
 
     private ListView collectsListView;
     private CollectsAdapter collectsAdapter;
+
+    private String userId;
 
     public CollectsFragment() {
         // Required empty public constructor
@@ -66,40 +71,32 @@ public class CollectsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Initialize Firebase Auth
-        auth = FirebaseAuth.getInstance();
         // Initialize Firestore
         db = FirebaseFirestore.getInstance();
-        currentUser = auth.getCurrentUser();
+
+        pref = getActivity().getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
+        editor = pref.edit();
+
+        userId = pref.getString("userId", null);
 
         // Views
         collectsListView = view.findViewById(R.id.collects_listview);
+        progressBar = view.findViewById(R.id.progress_horizontal);
 
         FloatingActionButton fab = view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), AddCollectActivity.class);
-                intent.putExtra("user", user.getId());
+                intent.putExtra("user", userId);
                 startActivity(intent);
             }
         });
     }
 
-    private void getUser() {
-        db.collection("users").document(currentUser.getUid())
-                .get()
-                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                    @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        user = documentSnapshot.toObject(User.class);
-                        getUserCollects();
-                    }
-                });
-    }
-
     private void getUserCollects() {
-        db.collection("clients").document(user.getId()).collection("collects")
+        progressBar.setVisibility(View.VISIBLE);
+        db.collection("clients").document(userId).collection("collects")
                 .orderBy("date")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -116,6 +113,7 @@ public class CollectsFragment extends Fragment {
                         } else {
                             Log.d(TAG, "Error getting collects", task.getException());
                         }
+                        progressBar.setVisibility(View.INVISIBLE);
                     }
                 });
     }
@@ -123,7 +121,6 @@ public class CollectsFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        Log.d(TAG, "OnResume CollectsFragment");
-        getUser();
+        getUserCollects();
     }
 }
