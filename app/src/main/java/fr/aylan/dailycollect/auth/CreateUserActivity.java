@@ -63,8 +63,7 @@ public class CreateUserActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
 
         // Views
-        progressBar = findViewById(R.id.progressBarCreateUser);
-        progressBar.setVisibility(ProgressBar.INVISIBLE);
+        progressBar = findViewById(R.id.progress_horizontal);
 
         nameField = findViewById(R.id.cuName);
         companyNameField = findViewById(R.id.cuCompanyName);
@@ -110,7 +109,7 @@ public class CreateUserActivity extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(CreateUserActivity.this, "Authentication failed.",
+                            Toast.makeText(CreateUserActivity.this, "Une erreur est survenue",
                                     Toast.LENGTH_SHORT).show();
                         }
 
@@ -240,7 +239,8 @@ public class CreateUserActivity extends AppCompatActivity {
         }
 
         if (!password.equals(confirmPassword)) {
-            nameField.setError("Les mots de passes ne correspondent pas");
+            passwordField.setError("Les mots de passes ne correspondent pas");
+            confirmPasswordField.setError("Les mots de passes ne correspondent pas");
             valid = false;
         } else {
             nameField.setError(null);

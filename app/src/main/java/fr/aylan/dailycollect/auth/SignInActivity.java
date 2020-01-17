@@ -70,7 +70,7 @@ public class SignInActivity extends AppCompatActivity implements
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser firebaseUser = auth.getCurrentUser();
-        if (firebaseUser != null) {
+        if (firebaseUser != null && pref.contains("userId") && pref.contains("userType")) {
             User user = new User(pref.getString("userId", null), pref.getString("userType", null));
             startUserActivity(user);
         }
