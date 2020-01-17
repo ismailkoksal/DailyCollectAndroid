@@ -27,16 +27,17 @@
             android:id="@+id/imageView12"
             android:layout_width="match_parent"
             android:layout_height="130dp"
-            android:src="@drawable/ic_photo_black_24dp"
+            android:tint="@color/oviveLightBlue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_client" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/tvClientName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@string/client"
             android:textAlignment="center"
             android:textColor="@color/oviveDarckGreen"
             android:textSize="18sp"
@@ -53,7 +54,7 @@
             android:text="@string/contact"
             android:textColor="@color/oviveLightBlue"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            app:layout_constraintTop_toBottomOf="@+id/tvClientName" />
 
         <TextView
             android:id="@+id/textView9"

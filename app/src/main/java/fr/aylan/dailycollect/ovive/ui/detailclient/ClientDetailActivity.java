@@ -30,6 +30,7 @@ public class ClientDetailActivity extends AppCompatActivity {
 
         ((TextView)findViewById(R.id.tvDirector)).setText(client.getDirector());
         ((TextView)findViewById(R.id.tvName)).setText(client.getName());
+        ((TextView)findViewById(R.id.tvClientName)).setText(client.getName());
         ((TextView)findViewById(R.id.tvMail)).setText(client.getMail());
         ((TextView)findViewById(R.id.tvTel)).setText(client.getTel());
         ((TextView)findViewById(R.id.tvAdress)).setText(client.getAdresse());
