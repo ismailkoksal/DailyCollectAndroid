@@ -74,7 +74,7 @@ public class ClientFragment extends Fragment {
             @Override
             public void run() {
 
-                ((App) (getParentFragment().getActivity().getApplication()) ).db.collection("clients")
+                ((App) (getParentFragment().getActivity().getApplication()) ).db.collection("client")
                         .addSnapshotListener(new EventListener<QuerySnapshot>() {
                             @Override
                             public void onEvent(@Nullable QuerySnapshot value,

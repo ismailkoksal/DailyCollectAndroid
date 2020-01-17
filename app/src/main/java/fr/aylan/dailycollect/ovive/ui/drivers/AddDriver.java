@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -96,6 +97,12 @@ public class AddDriver extends AppCompatActivity {
     }
 
     public void createDriver(View view) {
+
+        name = ((EditText)findViewById(R.id.etName)).getText().toString();
+        mail = ((EditText)findViewById(R.id.etMail)).getText().toString();
+        tel = ((EditText)findViewById(R.id.etTel)).getText().toString();
+        city = ((Spinner)findViewById(R.id.spinnerListvCitypinner)).getSelectedItem().toString();
+        employement_date = ((EditText)findViewById(R.id.etEmploymentDate)).getText().toString();
 
         OviveDriver driver = new OviveDriver( String.valueOf(nbrDocuments),  employement_date,  name,  mail,  tel,  city,  null);
         //Tour tour = new Tour(nbrDocuments, date, rider, city);
