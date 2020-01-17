@@ -61,6 +61,7 @@ public class CreateUserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_user);
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.white)));
+        getSupportActionBar().setElevation(0);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 

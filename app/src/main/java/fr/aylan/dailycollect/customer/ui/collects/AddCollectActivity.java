@@ -57,6 +57,7 @@ public class AddCollectActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_add_collect);
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.white)));
+        getSupportActionBar().setElevation(0);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 

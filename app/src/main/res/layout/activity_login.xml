@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".auth.SignInActivity">
+    tools:context=".auth.SignInActivity"
+    android:background="@color/white">
 
     <ProgressBar
         android:id="@+id/progress_horizontal"
@@ -21,8 +22,8 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         app:srcCompat="@drawable/logo_ovive_mer_fond_transparent"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginRight="64dp"
         android:layout_marginTop="32dp"/>
 
     <EditText

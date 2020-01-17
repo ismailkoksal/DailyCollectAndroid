@@ -22,7 +22,7 @@
         <!-- AUTH -->
         <activity
             android:name=".auth.SignInActivity"
-            android:label="Connexion">
+            android:label="">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

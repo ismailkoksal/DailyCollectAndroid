@@ -49,6 +49,7 @@ public class SignInActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_login);
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.white)));
+        getSupportActionBar().setElevation(0);
 
         // Views
         emailField = findViewById(R.id.fieldEmail);
