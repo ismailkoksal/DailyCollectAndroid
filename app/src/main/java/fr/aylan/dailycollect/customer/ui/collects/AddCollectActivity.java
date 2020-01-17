@@ -28,7 +28,11 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 import fr.aylan.dailycollect.R;
 import fr.aylan.dailycollect.model.Collect;
@@ -82,7 +86,11 @@ public class AddCollectActivity extends AppCompatActivity implements
             DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                    addCollectDate.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
+                    c.set(year, month, dayOfMonth);
+                    Date date = c.getTime();
+                    DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.FRANCE);
+                    String strDate = dateFormat.format(date);
+                    addCollectDate.setText(strDate);
                 }
             }, year, month, day);
             datePickerDialog.show();
@@ -101,7 +109,7 @@ public class AddCollectActivity extends AppCompatActivity implements
                         @Override
                         public void onTimeSet(TimePicker view, int hourOfDay,
                                               int minute) {
-                            addCollectTime.setText(hourOfDay + ":" + minute);
+                            addCollectTime.setText(String.format(Locale.FRANCE, "%02d:%02d", hourOfDay, minute));
                         }
                     }, hour, minute, true);
             timePickerDialog.show();
