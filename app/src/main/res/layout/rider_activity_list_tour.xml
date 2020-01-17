@@ -20,6 +20,6 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/rider_nav_header_list_tour"
-        app:menu="@menu/activity_list_tour_drawer" />
+        app:menu="@menu/activity_driver_main_drawer" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

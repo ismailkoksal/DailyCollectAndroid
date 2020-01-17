@@ -10,12 +10,12 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="340dp"
+        android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="2dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:background="@drawable/view_border"
-        android:elevation="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +38,7 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/round_button"
             android:src="@drawable/ic_more_horiz_black_24dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -50,20 +51,21 @@
             android:layout_marginTop="13dp"
             android:layout_marginBottom="25dp"
             android:background="@drawable/view_circle"
-            android:backgroundTint="#66000000"
+            android:backgroundTint="@color/oviveLightBlue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/ivProfilePhoto"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:id="@+id/ivProfilePhotoClient"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:tint="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_photo_black_24dp" />
+                app:srcCompat="@drawable/ic_client" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView

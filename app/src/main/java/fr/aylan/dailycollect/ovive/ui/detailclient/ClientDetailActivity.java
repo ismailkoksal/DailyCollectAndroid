@@ -1,6 +1,8 @@
 package fr.aylan.dailycollect.ovive.ui.detailclient;
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,12 @@ public class ClientDetailActivity extends AppCompatActivity {
         setContentView(R.layout.ovive_activity_detail_client);
         setTitle(getString(R.string.client));
 
+        actionBarSettings();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+
 
         client = getIntent().getParcelableExtra(getString(R.string.client));
 
@@ -32,5 +40,21 @@ public class ClientDetailActivity extends AppCompatActivity {
 
 
 
+    }
+
+
+    public void actionBarSettings(){
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.white)));
+        getSupportActionBar().setElevation(0);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home)
+        {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

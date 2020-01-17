@@ -1,6 +1,7 @@
 package fr.aylan.dailycollect.driver.ui.tourinfo;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -50,6 +51,7 @@ public class TourInfo extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        actionBarSettings();
 
         getVehicles();
         getCities();
@@ -168,6 +170,12 @@ public class TourInfo extends AppCompatActivity {
             finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void actionBarSettings(){
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.white)));
+        getSupportActionBar().setElevation(0);
+
     }
 
 

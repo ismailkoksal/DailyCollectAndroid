@@ -1,16 +1,17 @@
 package fr.aylan.dailycollect.driver.ui.validatepointscollectlist;
 
+import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -21,12 +22,12 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 
 import java.util.ArrayList;
+
 import fr.aylan.dailycollect.App;
 import fr.aylan.dailycollect.R;
-import fr.aylan.dailycollect.driver.TourList;
+import fr.aylan.dailycollect.driver.ui.listcollectpoints.ListCollectPointsView;
 import fr.aylan.dailycollect.model.CollectPoint;
 import fr.aylan.dailycollect.model.Tour;
-import fr.aylan.dailycollect.driver.ui.listcollectpoints.ListCollectPointsView;
 
 public class ValidateCollectPointsList extends AppCompatActivity {
 
@@ -45,7 +46,12 @@ public class ValidateCollectPointsList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getNbrTours();
 
+
         setContentView(R.layout.rider_activity_validate_collect_points_list);
+        actionBarSettings();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
         holder = findViewById(R.id.pontsCollectholder);
         selectedCPoints = getIntent().getParcelableArrayListExtra("selectedCPoints");
         ((TextView) findViewById(R.id.tvStartTime)).setText(selectedCPoints.get(0).getApproximativeTime());
@@ -103,9 +109,7 @@ public class ValidateCollectPointsList extends AppCompatActivity {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 Toast.makeText(ValidateCollectPointsList.this, getString(R.string.added_successfuly),Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(ValidateCollectPointsList.this, TourList.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                startActivity(intent);
+                                startActivity(((App) getApplication()).intent);
                                 Log.d(TAG, "DocumentSnapshot successfully written!");
                             }
                         })
@@ -118,4 +122,18 @@ public class ValidateCollectPointsList extends AppCompatActivity {
                         });
     }
 
+    public void actionBarSettings(){
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.white)));
+        getSupportActionBar().setElevation(0);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home)
+        {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

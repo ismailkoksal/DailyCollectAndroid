@@ -46,8 +46,8 @@ public class DriverAdapter extends ArrayAdapter<OviveDriver> {
 
         Picasso.get()
                 .load(driver.getUrlPhoto())
-                //.error(R.drawable.image2)
-                //.placeholder(R.drawable.ic_drawer)
+                .error(R.drawable.ic_user_white_24dp)
+                .placeholder(R.drawable.ic_user_white_24dp)
                 .resize(200, 200)
                 .transform(new ImageTrans_CircleTransform())
                 .into(photoProfile);

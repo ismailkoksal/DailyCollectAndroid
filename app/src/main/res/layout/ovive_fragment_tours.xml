@@ -5,19 +5,20 @@
     android:layout_height="match_parent">
 
     <ListView
-        android:id="@+id/listViewDrivers"
+        android:background="@android:color/white"
+        android:id="@+id/ovive_list_view_tours"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:scrollbars="none"
+        android:divider="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:divider="@android:color/transparent"
-        />
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ListView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/ovive_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
@@ -25,9 +26,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@color/oviveLightBlue"
-        app:elevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_add_white_24dp" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

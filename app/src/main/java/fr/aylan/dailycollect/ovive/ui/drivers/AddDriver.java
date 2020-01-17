@@ -1,7 +1,9 @@
 package fr.aylan.dailycollect.ovive.ui.drivers;
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -44,8 +46,13 @@ public class AddDriver extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_driver);
 
+
+        actionBarSettings();
         getNbrTours();
         getCities();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         spinnerCity = findViewById(R.id.spinnerListvCitypinner);
 
@@ -115,5 +122,21 @@ public class AddDriver extends AppCompatActivity {
                                 Log.w(TAG, "Error writing document", e);
                             }
                         });
+    }
+
+    public void actionBarSettings(){
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.white)));
+        getSupportActionBar().setElevation(0);
+
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home)
+        {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
