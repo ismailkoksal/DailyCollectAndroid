@@ -73,6 +73,7 @@ public class DriversFragment extends Fragment {
     }
 
 
+    // get list of drivers from firebase
     private void listenToMultiple() {
 
         Thread thread = new Thread() {
@@ -122,6 +123,7 @@ public class DriversFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        // set click listeners on drivers' listView items
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

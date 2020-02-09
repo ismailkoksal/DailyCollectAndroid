@@ -5,7 +5,9 @@ import android.os.Parcelable;
 
 public class City implements Parcelable {
 
+    // if of the city
     int id ;
+    // name of the city
     String name;
 
 

@@ -21,11 +21,13 @@ public class DriverDetails extends AppCompatActivity {
         setContentView(R.layout.activity_details_driver);
         actionBarSettings();
 
+        // get Driver from previous Avtivity
         OviveDriver driver = getIntent().getParcelableExtra(getString(R.string.driver));
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
+        // display driver's informatio on the view
         ((TextView) findViewById(R.id.tvName)).setText(driver.getName());
         ((TextView) findViewById(R.id.tvCity)).setText(driver.getCity());
         ((TextView) findViewById(R.id.tvEmployementDate)).setText(driver.getEmployement_date());

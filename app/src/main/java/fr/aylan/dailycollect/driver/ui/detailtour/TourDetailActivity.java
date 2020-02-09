@@ -34,17 +34,20 @@ public class TourDetailActivity extends AppCompatActivity   {
         Tour tour = getIntent().getExtras().getParcelable(getString(R.string.tour));
 
 
+        // add fragments to viewPager
         adapter.addFragment(new TabFragmentTourDetail(tour), getString(R.string.detail));
         adapter.addFragment(new TabFragmentTourMap(tour), getString(R.string.map));
         setTitle(getString(R.string.tour));
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
+        // remove shaddow
         getSupportActionBar().setElevation(0);
 
 
     }
 
+    // set action to back arrow
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home)
@@ -54,6 +57,7 @@ public class TourDetailActivity extends AppCompatActivity   {
         return super.onOptionsItemSelected(item);
     }
 
+    // set icon back arrow icon and remove shaddow
     public void actionBarSettings(){
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.white)));
         getSupportActionBar().setElevation(0);

@@ -48,9 +48,11 @@ public class ClientFragment extends Fragment {
         list.setAdapter(clientAdapter);
 
 
+        // get list  of Clients
         listenToMultiple();
 
 
+        // Alert options
         String[] array = new String[]{getString(R.string.modify),getString(R.string.delete)};
 
         builder = new AlertDialog.Builder(getActivity());
@@ -67,6 +69,7 @@ public class ClientFragment extends Fragment {
     }
 
 
+    // get list of clients from firebase
     private void listenToMultiple() {
 
         Thread thread = new Thread() {
@@ -124,6 +127,7 @@ public class ClientFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        // set click listeners on LictView items
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

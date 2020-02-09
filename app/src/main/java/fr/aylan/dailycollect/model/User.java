@@ -1,7 +1,9 @@
 package fr.aylan.dailycollect.model;
 
 public class User {
+    // id
     private String id;
+    // Driver, Client, Ovive's staff
     private String type;
 
     public User() {}

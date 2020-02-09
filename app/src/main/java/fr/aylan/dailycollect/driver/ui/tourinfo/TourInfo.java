@@ -53,8 +53,11 @@ public class TourInfo extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         actionBarSettings();
 
+        // get list of vehicles from firebase
         getVehicles();
+        // get list of cities from firebase
         getCities();
+        // get list of drivers from firebase
         getRiders();
 
 
@@ -64,12 +67,14 @@ public class TourInfo extends AppCompatActivity {
         datePicker = findViewById(R.id.datePicker);
 
 
+        // set adapters
         vehicleAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, vehicles);
         cityAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, cities);
         riderAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, riders);
 
 
 
+        // populate spinners with lists
         spinnerVehicle.setAdapter(vehicleAdapter);
         spinnerCity.setAdapter(cityAdapter);
         spinnerRider.setAdapter(riderAdapter);
@@ -78,7 +83,9 @@ public class TourInfo extends AppCompatActivity {
     }
 
 
+    // go to next step
     public void next(View view){
+        // get choosed informations
         String city = spinnerCity.getSelectedItem().toString();
         String rider = spinnerRider.getSelectedItem().toString();
         String vehicle = spinnerVehicle.getSelectedItem().toString();
@@ -86,6 +93,7 @@ public class TourInfo extends AppCompatActivity {
 
        selectedCPoints = getIntent().getParcelableArrayListExtra("selectedCPoints");
 
+       // send choosed informations to newt activity
         Intent intent = new Intent(this, ValidateCollectPointsList.class);
         intent.putExtra("city",city);
         intent.putExtra("rider",rider);
@@ -99,6 +107,7 @@ public class TourInfo extends AppCompatActivity {
 
 
 
+    // get list of vehicles from firebase.
     public void getVehicles()
     {
         ((App) (getApplication()) ).db.collection("vehicles")
@@ -120,7 +129,7 @@ public class TourInfo extends AppCompatActivity {
                 });
     }
 
-
+    //get list of drivers from firebase
     public void getRiders()
     {
         ((App) (getApplication()) ).db.collection("drivers")
@@ -163,6 +172,7 @@ public class TourInfo extends AppCompatActivity {
                 });
     }
 
+    // set action to back arrow button
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home)
@@ -172,6 +182,7 @@ public class TourInfo extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // set icon to backarrow and remove shaddow
     public void actionBarSettings(){
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.white)));
         getSupportActionBar().setElevation(0);

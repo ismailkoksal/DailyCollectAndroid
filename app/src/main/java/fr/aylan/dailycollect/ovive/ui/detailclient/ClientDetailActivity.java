@@ -24,9 +24,10 @@ public class ClientDetailActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-
-
+        // get Client from previous activity
         client = getIntent().getParcelableExtra(getString(R.string.client));
+
+        // diplay Client infoarmations on the view
 
         ((TextView)findViewById(R.id.tvDirector)).setText(client.getDirector());
         ((TextView)findViewById(R.id.tvName)).setText(client.getName());

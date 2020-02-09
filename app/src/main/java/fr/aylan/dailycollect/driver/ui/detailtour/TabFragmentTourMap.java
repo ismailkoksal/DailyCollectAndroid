@@ -67,6 +67,7 @@ public class TabFragmentTourMap extends Fragment implements GoogleApiClient.Conn
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        // prepare google Map Api
         mGoogleApiClient = new GoogleApiClient.Builder(getContext())
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
@@ -269,6 +270,7 @@ public class TabFragmentTourMap extends Fragment implements GoogleApiClient.Conn
     }
 
 
+    // draw route between collect Points
     public void drawRoute() {
 
         ArrayList<LatLng> wayPoints = new ArrayList<>();

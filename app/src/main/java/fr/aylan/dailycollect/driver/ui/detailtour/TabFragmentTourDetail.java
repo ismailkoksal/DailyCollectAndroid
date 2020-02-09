@@ -41,11 +41,13 @@ public class TabFragmentTourDetail extends Fragment {
         ((TextView)root.findViewById(R.id.tvDate)).setText(tour.getDate());
 
         listIds = new ArrayList();
+        // get collect Points of Tour
         ArrayList<String> temp =  tour.getList_collectPoints();
         for(String s : temp){
             listIds.add(s);
         }
 
+        // get collect Points
         ((App) (getActivity().getApplication()) ).db.collection("collectPoints")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override

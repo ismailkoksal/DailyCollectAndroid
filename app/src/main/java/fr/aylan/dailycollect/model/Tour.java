@@ -10,8 +10,11 @@ public class Tour  implements Parcelable {
     private int id;
     // dd/mm/yyyy
     private String date;
+    // the driver id
     private String id_Rider;
+    // list of collect points
     private ArrayList<String> list_collectPoints;
+    // City
     private String city;
 
 

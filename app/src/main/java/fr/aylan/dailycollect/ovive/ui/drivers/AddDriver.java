@@ -96,8 +96,10 @@ public class AddDriver extends AppCompatActivity {
                 });
     }
 
+    // action on Add Client button
     public void createDriver(View view) {
 
+        // get all driver's information
         name = ((EditText)findViewById(R.id.etName)).getText().toString();
         mail = ((EditText)findViewById(R.id.etMail)).getText().toString();
         tel = ((EditText)findViewById(R.id.etTel)).getText().toString();
@@ -109,6 +111,7 @@ public class AddDriver extends AppCompatActivity {
         ArrayList<String> collectPointsIds = new ArrayList<>();
 
 
+        // add driver to firebase
         Task<Void> writeResult =
                 ((App) (getApplication()) ).db
                         .collection("drivers")

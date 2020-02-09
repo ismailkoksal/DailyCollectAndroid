@@ -49,23 +49,27 @@ public class AddTour extends AppCompatActivity {
 
         listItemsLayout = findViewById(R.id.listItemsLayout);
 
+        // enable "Go back" button
         actionBarSettings();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
         btnAddTourItem =findViewById(R.id.btnAddItemTour);
+        // display Add Tour when lick on floating Button
         btnAddTourItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addTourItem();
             }
         });
+        // get Collect Points from firebase
         getCollectPoints();
 
 
 
     }
 
+    // get collect Points from firebase
     private void getCollectPoints() {
         ((App) (getApplication()) ).db.collection("collectPoints")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -98,10 +102,11 @@ public class AddTour extends AppCompatActivity {
     }
 
 
+    //
     public void addTourItem(){
 
 
-
+        // Add another item of Collect Point to Tour
         nbrItems++;
         TourItemView itemView = new TourItemView(AddTour.this, nbrItems,pointsNames);
 
@@ -125,6 +130,7 @@ public class AddTour extends AppCompatActivity {
     }
 
 
+    // show Calendar
     public void showCalendar(){
         final Calendar cldr = Calendar.getInstance();
         int hour = cldr.get(Calendar.HOUR_OF_DAY);
@@ -141,6 +147,7 @@ public class AddTour extends AppCompatActivity {
     }
 
 
+    // Validate list of collect Points and go to next step
     public void validateList(View view){
 
         ArrayList<CollectPoint> selectedCPoints = new ArrayList<>();
@@ -160,11 +167,13 @@ public class AddTour extends AppCompatActivity {
 
     }
 
+    // set back arrow and remive elevation/shaddow
     public void actionBarSettings(){
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.white)));
         getSupportActionBar().setElevation(0);
 
     }
+    // set action on back arrow
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home)

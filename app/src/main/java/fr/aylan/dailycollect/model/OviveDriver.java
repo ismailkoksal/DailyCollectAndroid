@@ -8,10 +8,15 @@ public class OviveDriver implements Parcelable{
     private String id;
     // dd/mm/yyyy
     private String employement_date;
+    // name
     private String name;
+    // E-mail
     private String mail;
+    // phone number
     private String tel;
+    // City
     private String city;
+    // URL of the profile photo
     private String urlPhoto;
 
     public OviveDriver(String id, String employement_date, String name, String mail, String tel, String city, String urlPhoto) {

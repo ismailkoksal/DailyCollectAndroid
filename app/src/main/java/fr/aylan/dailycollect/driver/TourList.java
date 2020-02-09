@@ -46,7 +46,7 @@ public class TourList extends AppCompatActivity {
         View hView =  navigationView.getHeaderView(0);
 
 
-        
+        // check if user is not null to show information
 
         try{
             if (auth.getCurrentUser().getDisplayName() != null ){

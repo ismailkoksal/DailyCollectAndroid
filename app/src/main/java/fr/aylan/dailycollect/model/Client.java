@@ -5,17 +5,29 @@ import android.os.Parcelable;
 
 public class Client   implements Parcelable {
 
+    // if of the Client
     String id;
+    // logo of Client
     String logo;
+    // mail of the director
     String mail;
+    // tel of the Client
     String tel;
+    // name of the director
     String director;
+    // id of collect point of Client
     String id_collect_point;
+    //name of the Client
     String name;
+    // Adress of the client
     String adresse;
+    // the subscriptoin date of the Client to the service
     String subscription_date;
+    // the signing date of the Client to the Service
     String signing_date;
+    // end date of the contract
     String contract_end_date;
+    // the day of the collect
     String collect_day;
 
     public Client() {}

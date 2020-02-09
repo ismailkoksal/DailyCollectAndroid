@@ -54,8 +54,10 @@ public class ToursFragment extends Fragment {
         list.setAdapter(tourAdapter);
 
 
+        // get list of Tours
         listenToMultiple();
 
+        // add action to floating button
         FloatingActionButton fab = root.findViewById(R.id.ovive_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,6 +110,7 @@ public class ToursFragment extends Fragment {
 
     }
 
+    // get list of Tours from firebase
     private void listenToMultiple() {
 
         Thread thread = new Thread() {

@@ -4,13 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
+    // list of the collect Points
     private ArrayList<Collect> collects;
+    // name
     private String nom;
     private String raisonSociale;
+    // E-Mail
     private String email;
+    // phone number
     private String telephone;
+    // street
     private String rue;
+    // ZipCode
     private String cp;
+    // City
     private String ville;
 
     public Customer() {}

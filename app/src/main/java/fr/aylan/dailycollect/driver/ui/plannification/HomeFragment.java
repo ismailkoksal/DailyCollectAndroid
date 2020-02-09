@@ -46,16 +46,20 @@ public class HomeFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
 
-        
+        // get firestore instance
         db = FirebaseFirestore.getInstance();
+        // set layout
         root = inflater.inflate(R.layout.rider_fragment_home, container, false);
+        // set listView adapter
         tourAdapter = new TourAdapter(getContext(), listTours);
         list = root.findViewById(R.id.list_view_tours);
         list.setAdapter(tourAdapter);
 
 
+        // get tours from firebase
         listenToMultiple();
 
+        // add action to floating button
         FloatingActionButton fab = root.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +91,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 
+        // set click listeners on listView items
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -109,6 +114,7 @@ public class HomeFragment extends Fragment {
 
     }
 
+    // get Tours from firebase
     private void listenToMultiple() {
 
         Thread thread = new Thread() {

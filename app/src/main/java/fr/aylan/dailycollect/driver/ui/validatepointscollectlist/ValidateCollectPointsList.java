@@ -60,11 +60,13 @@ public class ValidateCollectPointsList extends AppCompatActivity {
 
 
 
+        // get information sent from previous activity
         date = getIntent().getStringExtra("date");
         vehicle = getIntent().getStringExtra("vehicle");
         rider = getIntent().getStringExtra("rider");
         city = getIntent().getStringExtra("city");
 
+        // display information
         ((TextView) findViewById(R.id.tvDate)).setText(date);
         ((TextView) findViewById(R.id.tvVehicle)).setText(vehicle);
         ((TextView) findViewById(R.id.tvRider)).setText(rider);
@@ -76,6 +78,7 @@ public class ValidateCollectPointsList extends AppCompatActivity {
     }
 
 
+    // get number of tours in firebase
     public void getNbrTours(){
         ((App) (getApplication()) ).db.collection("tours")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -122,12 +125,14 @@ public class ValidateCollectPointsList extends AppCompatActivity {
                         });
     }
 
+    // set icon to backarrow and remive shaddow
     public void actionBarSettings(){
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.white)));
         getSupportActionBar().setElevation(0);
 
     }
 
+    // set action on backarrow
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home)

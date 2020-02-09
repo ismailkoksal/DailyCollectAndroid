@@ -1,7 +1,9 @@
 package fr.aylan.dailycollect.model;
 
 public class Collect {
+    // date of the collect
     private String date;
+    // time of the collect
     private String time;
 
     public Collect() {}
