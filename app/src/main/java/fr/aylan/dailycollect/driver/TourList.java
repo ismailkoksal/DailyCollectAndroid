@@ -46,6 +46,8 @@ public class TourList extends AppCompatActivity {
         View hView =  navigationView.getHeaderView(0);
 
 
+        
+
         try{
             if (auth.getCurrentUser().getDisplayName() != null ){
                 ((TextView) hView.findViewById(R.id.tvName)).setText(auth.getCurrentUser().getDisplayName());
